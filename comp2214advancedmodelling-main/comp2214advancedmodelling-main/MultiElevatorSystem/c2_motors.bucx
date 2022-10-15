@@ -1,0 +1,13 @@
+context c2_motors
+extends c1_shafts
+sets
+MOTORS
+MOTORSTATES
+constants
+ON
+OFF
+cabinMotor
+axioms
+@axm4: partition(MOTORSTATES,{OFF},{ON})
+@axm5: cabinMotor ∈ CABINS ⤖ MOTORS
+end

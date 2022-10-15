@@ -1,0 +1,9 @@
+context c1_shafts
+extends c0_cabins
+sets
+SHAFTS
+constants
+shafts
+axioms
+@axm3: shafts = 1 ‥ 2 
+end

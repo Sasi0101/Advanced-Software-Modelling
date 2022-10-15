@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd;ac.soton.xeventb.xmachine.base" org.eventb.core.generated="false" version="5">
+    <org.eventb.core.refinesMachine name="_Irmv8NH1Eey_7YDWctky8Q" org.eventb.core.target="m2_motors"/>
+    <org.eventb.core.seesContext name="_IrnXANH1Eey_7YDWctky8Q" org.eventb.core.target="c3_doors"/>
+    <org.eventb.core.variable name="_IrnXAdH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.identifier="cabins"/>
+    <org.eventb.core.variable name="_Irn-ENH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.identifier="cabinFloor"/>
+    <org.eventb.core.variable name="_Irn-EdH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.identifier="cabinGoingToUp"/>
+    <org.eventb.core.variable name="_IrolINH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.identifier="cabinGoingToDown"/>
+    <org.eventb.core.variable name="_IrolIdH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.identifier="cabinInShaft"/>
+    <org.eventb.core.variable name="_IrpMMNH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.identifier="motorState"/>
+    <org.eventb.core.variable name="_IrpzQNH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.identifier="doorState"/>
+    <org.eventb.core.invariant name="_IrpzQdH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.label="inv8" org.eventb.core.predicate="doorState ∈ DOORS ⇸ DOORSTATES"/>
+    <org.eventb.core.invariant name="_IrqaUNH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.label="inv13" org.eventb.core.predicate="∀ c · c ∈ cabins ⇒ cabinDoor(c) ∈ dom(doorState)"/>
+    <org.eventb.core.event name="_IrrBYNH1Eey_7YDWctky8Q" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="INITIALISATION">
+        <org.eventb.core.action name="_IrrocNH1Eey_7YDWctky8Q" org.eventb.core.assignment="doorState ≔ ∅" org.eventb.core.generated="false" org.eventb.core.label="act7"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_IrsPgNH1Eey_7YDWctky8Q" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="AddCabin">
+        <org.eventb.core.refinesEvent name="_Irs2kNH1Eey_7YDWctky8Q" org.eventb.core.target="AddCabin"/>
+        <org.eventb.core.action name="_Irs2kdH1Eey_7YDWctky8Q" org.eventb.core.assignment="doorState(cabinDoor(c)) ≔ CLOSED" org.eventb.core.generated="false" org.eventb.core.label="act5"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_IrtdoNH1Eey_7YDWctky8Q" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="RemoveCabin">
+        <org.eventb.core.refinesEvent name="_IruEsNH1Eey_7YDWctky8Q" org.eventb.core.target="RemoveCabin"/>
+        <org.eventb.core.guard name="_IruEsdH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.label="grd8" org.eventb.core.predicate="doorState(cabinDoor(c)) = CLOSED"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_IrurwNH1Eey_7YDWctky8Q" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="CabinLeavesFloorGoingUp">
+        <org.eventb.core.refinesEvent name="_IrvS0NH1Eey_7YDWctky8Q" org.eventb.core.target="CabinLeavesFloorGoingUp"/>
+        <org.eventb.core.guard name="_IrvS0dH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.label="grd9" org.eventb.core.predicate="doorState(cabinDoor(c)) = CLOSED"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_Irv54NH1Eey_7YDWctky8Q" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="CabinReachesFloorGoingUp">
+        <org.eventb.core.refinesEvent name="_Irwg8NH1Eey_7YDWctky8Q" org.eventb.core.target="CabinReachesFloorGoingUp"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_Irwg8dH1Eey_7YDWctky8Q" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="CabinLeavesFloorGoingDown">
+        <org.eventb.core.refinesEvent name="_IrxIANH1Eey_7YDWctky8Q" org.eventb.core.target="CabinLeavesFloorGoingDown"/>
+        <org.eventb.core.guard name="_IrxvENH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.label="grd9" org.eventb.core.predicate="doorState(cabinDoor(c)) = CLOSED"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_IryWINH1Eey_7YDWctky8Q" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="CabinReachesFloorGoingDown">
+        <org.eventb.core.refinesEvent name="_IryWIdH1Eey_7YDWctky8Q" org.eventb.core.target="CabinReachesFloorGoingDown"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_Iry9MNH1Eey_7YDWctky8Q" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="CabinUpToDown">
+        <org.eventb.core.refinesEvent name="_IrzkQNH1Eey_7YDWctky8Q" org.eventb.core.target="CabinUpToDown"/>
+        <org.eventb.core.guard name="_IrzkQdH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.label="grd8" org.eventb.core.predicate="doorState(cabinDoor(c)) = CLOSED"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_Ir0LUNH1Eey_7YDWctky8Q" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="CabinDownToUp">
+        <org.eventb.core.refinesEvent name="_Ir0yYNH1Eey_7YDWctky8Q" org.eventb.core.target="CabinDownToUp"/>
+        <org.eventb.core.guard name="_Ir0yYdH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.label="grd8" org.eventb.core.predicate="doorState(cabinDoor(c)) = CLOSED"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_Ir1ZcNH1Eey_7YDWctky8Q" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="MotorStarts">
+        <org.eventb.core.refinesEvent name="_Ir2AgNH1Eey_7YDWctky8Q" org.eventb.core.target="MotorStarts"/>
+        <org.eventb.core.guard name="_Ir2AgdH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.label="grd4" org.eventb.core.predicate="doorState(cabinDoor(c)) = CLOSED"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_Ir2nkNH1Eey_7YDWctky8Q" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="MotorStops">
+        <org.eventb.core.refinesEvent name="_Ir3OoNH1Eey_7YDWctky8Q" org.eventb.core.target="MotorStops"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_Ir3OodH1Eey_7YDWctky8Q" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="DoorClosedToHalf">
+        <org.eventb.core.parameter name="_Ir31sNH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.identifier="c"/>
+        <org.eventb.core.guard name="_Ir4cwNH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.label="grd1" org.eventb.core.predicate="c ∈ cabins"/>
+        <org.eventb.core.guard name="_Ir5D0NH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.label="grd2" org.eventb.core.predicate="c ∈ dom(cabinFloor)"/>
+        <org.eventb.core.guard name="_Ir5q4NH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.label="grd3" org.eventb.core.predicate="motorState(cabinMotor(c)) = OFF"/>
+        <org.eventb.core.guard name="_Ir5q4dH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.label="grd4" org.eventb.core.predicate="doorState(cabinDoor(c)) = CLOSED"/>
+        <org.eventb.core.action name="_Ir6R8NH1Eey_7YDWctky8Q" org.eventb.core.assignment="doorState(cabinDoor(c)) ≔ HALF" org.eventb.core.generated="false" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_Ir65ANH1Eey_7YDWctky8Q" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="DoorHalfToOpen">
+        <org.eventb.core.parameter name="_Ir65AdH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.identifier="c"/>
+        <org.eventb.core.guard name="_Ir7gENH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.label="grd1" org.eventb.core.predicate="c ∈ cabins"/>
+        <org.eventb.core.guard name="_Ir8HINH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.label="grd2" org.eventb.core.predicate="c ∈ dom(cabinFloor)"/>
+        <org.eventb.core.guard name="_Ir8uMNH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.label="grd3" org.eventb.core.predicate="motorState(cabinMotor(c)) = OFF"/>
+        <org.eventb.core.guard name="_Ir8uMdH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.label="grd4" org.eventb.core.predicate="doorState(cabinDoor(c)) = HALF"/>
+        <org.eventb.core.action name="_Ir9VQNH1Eey_7YDWctky8Q" org.eventb.core.assignment="doorState(cabinDoor(c)) ≔ OPEN" org.eventb.core.generated="false" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_Ir98UNH1Eey_7YDWctky8Q" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="DoorOpenToHalf">
+        <org.eventb.core.parameter name="_Ir-jYNH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.identifier="c"/>
+        <org.eventb.core.guard name="_Ir-jYdH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.label="grd1" org.eventb.core.predicate="c ∈ cabins"/>
+        <org.eventb.core.guard name="_Ir_KcNH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.label="grd2" org.eventb.core.predicate="c ∈ dom(cabinFloor)"/>
+        <org.eventb.core.guard name="_Ir_xgNH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.label="grd3" org.eventb.core.predicate="motorState(cabinMotor(c)) = OFF"/>
+        <org.eventb.core.guard name="_Ir_xgdH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.label="grd4" org.eventb.core.predicate="doorState(cabinDoor(c)) = OPEN"/>
+        <org.eventb.core.action name="_IsAYkNH1Eey_7YDWctky8Q" org.eventb.core.assignment="doorState(cabinDoor(c)) ≔ HALF" org.eventb.core.generated="false" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_IsA_oNH1Eey_7YDWctky8Q" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="DoorHalfToClosed">
+        <org.eventb.core.parameter name="_IsBmsNH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.identifier="c"/>
+        <org.eventb.core.guard name="_IsBmsdH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.label="grd1" org.eventb.core.predicate="c ∈ cabins"/>
+        <org.eventb.core.guard name="_IsCNwNH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.label="grd2" org.eventb.core.predicate="c ∈ dom(cabinFloor)"/>
+        <org.eventb.core.guard name="_IsC00NH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.label="grd3" org.eventb.core.predicate="motorState(cabinMotor(c)) = OFF"/>
+        <org.eventb.core.guard name="_IsC00dH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.label="grd4" org.eventb.core.predicate="doorState(cabinDoor(c)) = HALF"/>
+        <org.eventb.core.action name="_IsDb4NH1Eey_7YDWctky8Q" org.eventb.core.assignment="doorState(cabinDoor(c)) ≔ CLOSED" org.eventb.core.generated="false" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+</org.eventb.core.machineFile>

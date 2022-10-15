@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd;ac.soton.xeventb.xcontext.base" org.eventb.core.generated="false" version="3">
+    <org.eventb.core.extendsContext name="_IssVENH1Eey_7YDWctky8Q" org.eventb.core.target="c1_shafts"/>
+    <org.eventb.core.carrierSet name="_IssVEdH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.identifier="MOTORS"/>
+    <org.eventb.core.carrierSet name="_Iss8INH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.identifier="MOTORSTATES"/>
+    <org.eventb.core.constant name="_IstjMNH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.identifier="ON"/>
+    <org.eventb.core.constant name="_IstjMdH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.identifier="OFF"/>
+    <org.eventb.core.constant name="_IstjMtH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.identifier="cabinMotor"/>
+    <org.eventb.core.axiom name="_IsuKQNH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.label="axm4" org.eventb.core.predicate="partition(MOTORSTATES,{OFF},{ON})"/>
+    <org.eventb.core.axiom name="_IsuxUNH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.label="axm5" org.eventb.core.predicate="cabinMotor ∈ CABINS ⤖ MOTORS"/>
+</org.eventb.core.contextFile>

@@ -1,0 +1,118 @@
+machine m4_buttons
+refines m3_doors
+sees c4_buttons
+variables
+	cabins
+	cabinFloor
+	cabinGoingToUp
+	cabinGoingToDown
+	cabinInShaft
+	motorState
+	doorState
+	activeFloorUpButtons
+	activeFloorDownButtons
+	activateCabinButtons
+invariants
+@inv9: activeFloorUpButtons ∈ floor ⇸ UPBUTTONS
+@inv10: activeFloorDownButtons ∈ floor ⇸ DOWNBUTTONS
+@inv11: activateCabinButtons ∈ cabins ↔ floor
+events
+	event INITIALISATION extends INITIALISATION
+	begin
+	@act8: activeFloorUpButtons ≔ ∅ 
+	@act9: activeFloorDownButtons ≔ ∅ 
+	@act10: activateCabinButtons ≔ ∅ 
+	end
+
+	event AddCabin extends AddCabin
+	end
+
+	event RemoveCabin extends RemoveCabin
+	where
+	@grd9: ran({c} ◁ activateCabinButtons) = ∅
+	end
+
+	event CabinLeavesFloorGoingUp extends CabinLeavesFloorGoingUp
+	where
+	@grd10: cabinFloor(c) ∉ dom (activeFloorUpButtons)
+	@grd11: cabinFloor(c) ∉ ran({c} ◁ activateCabinButtons)
+	end
+
+	event CabinReachesFloorGoingUp extends CabinReachesFloorGoingUp
+	end
+
+	event CabinLeavesFloorGoingDown extends CabinLeavesFloorGoingDown
+	where
+	@grd10: cabinFloor(c) ∉ dom (activeFloorDownButtons)
+	@grd11: cabinFloor(c) ∉ ran({c} ◁ activateCabinButtons)
+	end
+
+	event CabinReachesFloorGoingDown extends CabinReachesFloorGoingDown
+	end
+
+	event CabinUpToDown extends CabinUpToDown
+	where
+	@grd9: cabinFloor(c) ∉ ran({c} ◁ activateCabinButtons)
+	end
+
+	event CabinDownToUp extends CabinDownToUp
+	where
+	@grd9: cabinFloor(c) ∉ ran({c} ◁ activateCabinButtons)
+	end
+
+	event MotorStarts extends MotorStarts
+	end
+
+	event MotorStops extends MotorStops
+	end
+
+	event DoorClosedToHalf extends DoorClosedToHalf
+	end
+
+	event DoorHalfToOpenShaft1 extends DoorHalfToOpen
+	where
+	@grd5: cabinInShaft(c) = 1
+	begin
+	@act2: activeFloorUpButtons ≔ {cabinFloor(c)} ⩤ activeFloorUpButtons
+	@act3: activateCabinButtons ≔ activateCabinButtons ∖ {c ↦ cabinFloor(c)}//⩥ {cabinFloor(c)}
+	end
+	
+	event DoorHalfToOpenShaft2 extends DoorHalfToOpen
+	where
+	@grd5: cabinInShaft(c) = 2
+	begin
+	@act2: activeFloorDownButtons ≔ {cabinFloor(c)} ⩤ activeFloorDownButtons
+	@act3: activateCabinButtons ≔ activateCabinButtons ∖ {c ↦ cabinFloor(c)}
+	end
+
+	event DoorOpenToHalf extends DoorOpenToHalf
+	end
+
+	event DoorHalfToClosed extends DoorHalfToClosed
+	end
+	
+	event UserPressesUpButton
+	any f where
+	@grd1: f ∈ floor
+	@grd2: f ∈ dom(floorUpButtons)
+	then
+	@act1: activeFloorUpButtons(f) ≔ floorUpButtons(f)
+	end
+	
+	event UserPressesDownButton
+	any f where
+	@grd1: f ∈ floor
+	@grd2: f ∈ dom(floorDownButtons)
+	then
+	@act1: activeFloorDownButtons(f) ≔ floorDownButtons(f)
+	end
+	
+	event UserPressesFloorButton
+	any c f where
+	@grd1: c ∈ cabins
+	@grd2: f ∈ floor
+	then
+	@act1: activateCabinButtons ≔ activateCabinButtons ∪ {c ↦ f}
+	end
+
+end

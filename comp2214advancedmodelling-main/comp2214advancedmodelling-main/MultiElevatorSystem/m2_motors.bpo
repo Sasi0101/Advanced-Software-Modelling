@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.poFile org.eventb.core.poStamp="0">
+    <org.eventb.core.poPredicateSet name="CTXHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="CABINS" org.eventb.core.type="ℙ(CABINS)"/>
+        <org.eventb.core.poIdentifier name="floor" org.eventb.core.type="ℙ(ℤ)"/>
+        <org.eventb.core.poIdentifier name="topFloor" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poPredicate name="topFloos" org.eventb.core.predicate="topFloor=4" org.eventb.core.source="/MultiElevatorSystem/c0_cabins.buc|org.eventb.core.contextFile#c0_cabins|org.eventb.core.axiom#_IsbPUdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="topFloot" org.eventb.core.predicate="floor=1 ‥ topFloor" org.eventb.core.source="/MultiElevatorSystem/c0_cabins.buc|org.eventb.core.contextFile#c0_cabins|org.eventb.core.axiom#_Isb2YNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poIdentifier name="SHAFTS" org.eventb.core.type="ℙ(SHAFTS)"/>
+        <org.eventb.core.poIdentifier name="shafts" org.eventb.core.type="ℙ(ℤ)"/>
+        <org.eventb.core.poPredicate name="topFloou" org.eventb.core.predicate="shafts=1 ‥ 2" org.eventb.core.source="/MultiElevatorSystem/c1_shafts.buc|org.eventb.core.contextFile#c1_shafts|org.eventb.core.axiom#_IskZQNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poIdentifier name="MOTORSTATES" org.eventb.core.type="ℙ(MOTORSTATES)"/>
+        <org.eventb.core.poIdentifier name="MOTORS" org.eventb.core.type="ℙ(MOTORS)"/>
+        <org.eventb.core.poIdentifier name="OFF" org.eventb.core.type="MOTORSTATES"/>
+        <org.eventb.core.poIdentifier name="ON" org.eventb.core.type="MOTORSTATES"/>
+        <org.eventb.core.poIdentifier name="cabinMotor" org.eventb.core.type="ℙ(CABINS×MOTORS)"/>
+        <org.eventb.core.poPredicate name="MOTORSTATET" org.eventb.core.predicate="partition(MOTORSTATES,{OFF},{ON})" org.eventb.core.source="/MultiElevatorSystem/c2_motors.buc|org.eventb.core.contextFile#c2_motors|org.eventb.core.axiom#_IsuKQNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="MOTORSTATEU" org.eventb.core.predicate="cabinMotor∈CABINS ⤖ MOTORS" org.eventb.core.source="/MultiElevatorSystem/c2_motors.buc|org.eventb.core.contextFile#c2_motors|org.eventb.core.axiom#_IsuxUNH1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="cabinGoingToUp" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+        <org.eventb.core.poIdentifier name="motorState" org.eventb.core.type="ℙ(MOTORS×MOTORSTATES)"/>
+        <org.eventb.core.poIdentifier name="cabinGoingToDown" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+        <org.eventb.core.poIdentifier name="cabinFloor" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+        <org.eventb.core.poIdentifier name="cabinInShaft" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+        <org.eventb.core.poIdentifier name="cabins" org.eventb.core.type="ℙ(CABINS)"/>
+        <org.eventb.core.poPredicate name="cabinGoingToDowo" org.eventb.core.predicate="cabins⊆CABINS" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.invariant#_Io7PYNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="cabinGoingToDowp" org.eventb.core.predicate="cabinFloor∈cabins ⇸ floor" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.invariant#_Io7PYdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="cabinGoingToDowq" org.eventb.core.predicate="cabinGoingToUp∈cabins ⇸ floor" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.invariant#_Io72cNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="cabinGoingToDowr" org.eventb.core.predicate="cabinGoingToDown∈cabins ⇸ floor" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.invariant#_Io8dgNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="cabinGoingToDows" org.eventb.core.predicate="∀c⦂CABINS·c∈cabins⇒c∈dom(cabinFloor)∨c∈dom(cabinGoingToUp)∨c∈dom(cabinGoingToDown)" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.invariant#_Io9EkNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="cabinGoingToDowt" org.eventb.core.predicate="cabinInShaft∈cabins → shafts" org.eventb.core.source="/MultiElevatorSystem/m1_shafts.bum|org.eventb.core.machineFile#m1_shafts|org.eventb.core.invariant#_IqCptdH1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="inv12/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Invariant" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#HYPc2_motort"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀c⦂CABINS·c∈cabins⇒c∈dom(cabinMotor)∧cabinMotor∈CABINS ⇸ MOTORS" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.invariant#_IokqEdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.invariant#_IokqEdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#HYPc2_motort"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/inv7/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTALLHYPcabinGoingToDowo"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="(∅ ⦂ ℙ(MOTORS×MOTORSTATES))∈MOTORS ⇸ MOTORSTATES" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.invariant#_IokqENH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/MultiElevatorSystem/m1_shafts.bum|org.eventb.core.machineFile#m1_shafts|org.eventb.core.event#_IqCpttH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_IolRINH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.invariant#_IokqENH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poSequent#INITIALISATION\/inv7\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#HYPc2_motort|org.eventb.core.poPredicate#PRD0"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/inv12/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTALLHYPcabinGoingToDowo"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀c⦂CABINS·c∈(∅ ⦂ ℙ(CABINS))⇒cabinMotor(c)∈dom(∅ ⦂ ℙ(MOTORS×MOTORSTATES))" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.invariant#_IokqEdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/MultiElevatorSystem/m1_shafts.bum|org.eventb.core.machineFile#m1_shafts|org.eventb.core.event#_IqCpttH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_IolRINH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.invariant#_IokqEdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poSequent#INITIALISATION\/inv12\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD1"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTcabinGoingToDowo" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="motorState'" org.eventb.core.type="ℙ(MOTORS×MOTORSTATES)"/>
+        <org.eventb.core.poIdentifier name="cabinFloor'" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+        <org.eventb.core.poIdentifier name="cabinInShaft'" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+        <org.eventb.core.poIdentifier name="cabinGoingToDown'" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+        <org.eventb.core.poIdentifier name="cabinGoingToUp'" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+        <org.eventb.core.poIdentifier name="cabins'" org.eventb.core.type="ℙ(CABINS)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPcabinGoingToDowo" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTIDENTcabinGoingToDowo" org.eventb.core.poStamp="0"/>
+    <org.eventb.core.poSequent name="AddCabin/inv7/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTALLHYPcabinGoingToDowp"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="motorState{cabinMotor(c) ↦ OFF}∈MOTORS ⇸ MOTORSTATES" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.invariant#_IokqENH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/MultiElevatorSystem/m1_shafts.bum|org.eventb.core.machineFile#m1_shafts|org.eventb.core.event#_IqCpuNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_IomfQNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.invariant#_IokqENH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poSequent#AddCabin\/inv7\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#HYPc2_motort|org.eventb.core.poPredicate#PRD0"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="AddCabin/inv12/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTALLHYPcabinGoingToDowp"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀c0⦂CABINS·c0∈cabins∪{c}⇒cabinMotor(c0)∈dom(motorState{cabinMotor(c) ↦ OFF})" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.invariant#_IokqEdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/MultiElevatorSystem/m1_shafts.bum|org.eventb.core.machineFile#m1_shafts|org.eventb.core.event#_IqCpuNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_IomfQNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.invariant#_IokqEdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poSequent#AddCabin\/inv12\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD1"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="AddCabin/act4/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTALLHYPcabinGoingToDowp"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="c∈dom(cabinMotor)∧cabinMotor∈CABINS ⇸ MOTORS" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_IomfQNH1Eey_7YDWctky8Q|org.eventb.core.action#_IomfQtH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_IomfQNH1Eey_7YDWctky8Q|org.eventb.core.action#_IomfQtH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTALLHYPcabinGoingToDowp"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTcabinGoingToDowp" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="motorState'" org.eventb.core.type="ℙ(MOTORS×MOTORSTATES)"/>
+        <org.eventb.core.poIdentifier name="c" org.eventb.core.type="CABINS"/>
+        <org.eventb.core.poIdentifier name="cabinFloor'" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+        <org.eventb.core.poIdentifier name="cabinInShaft'" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+        <org.eventb.core.poIdentifier name="cabins'" org.eventb.core.type="ℙ(CABINS)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPcabinGoingToDowp" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTIDENTcabinGoingToDowp" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="c∈CABINS" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.event#_Io-5wtH1Eey_7YDWctky8Q|org.eventb.core.guard#_Io-5xNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="c∉cabins" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.event#_Io-5wtH1Eey_7YDWctky8Q|org.eventb.core.guard#_Io-5xdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="¬(∃cab⦂CABINS·cab∈cabins∧dom(cabinFloor ▷ {1})={cab}∧cabinInShaft(cab)=1)" org.eventb.core.source="/MultiElevatorSystem/m1_shafts.bum|org.eventb.core.machineFile#m1_shafts|org.eventb.core.event#_IqCpuNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IqCputH1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="RemoveCabin/grd7/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTHYPcabinGoingToDowqf"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="c∈dom(cabinMotor)∧cabinMotor∈CABINS ⇸ MOTORS∧cabinMotor(c)∈dom(motorState)∧motorState∈MOTORS ⇸ MOTORSTATES" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_IonGUNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IonGUtH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_IonGUNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IonGUtH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTHYPcabinGoingToDowqf"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="RemoveCabin/inv7/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTALLHYPcabinGoingToDowq"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="motorState{cabinMotor(c) ↦ OFF}∈MOTORS ⇸ MOTORSTATES" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.invariant#_IokqENH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/MultiElevatorSystem/m1_shafts.bum|org.eventb.core.machineFile#m1_shafts|org.eventb.core.event#_IqCpvNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_IonGUNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.invariant#_IokqENH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poSequent#RemoveCabin\/inv7\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#HYPc2_motort|org.eventb.core.poPredicate#PRD0"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="RemoveCabin/inv12/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTALLHYPcabinGoingToDowq"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀c0⦂CABINS·c0∈cabins ∖ {c}⇒cabinMotor(c0)∈dom(motorState{cabinMotor(c) ↦ OFF})" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.invariant#_IokqEdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/MultiElevatorSystem/m1_shafts.bum|org.eventb.core.machineFile#m1_shafts|org.eventb.core.event#_IqCpvNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_IonGUNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.invariant#_IokqEdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poSequent#RemoveCabin\/inv12\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD1"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="RemoveCabin/act4/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTALLHYPcabinGoingToDowq"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="c∈dom(cabinMotor)∧cabinMotor∈CABINS ⇸ MOTORS" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_IonGUNH1Eey_7YDWctky8Q|org.eventb.core.action#_IontYNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_IonGUNH1Eey_7YDWctky8Q|org.eventb.core.action#_IontYNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTALLHYPcabinGoingToDowq"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTcabinGoingToDowq" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="motorState'" org.eventb.core.type="ℙ(MOTORS×MOTORSTATES)"/>
+        <org.eventb.core.poIdentifier name="c" org.eventb.core.type="CABINS"/>
+        <org.eventb.core.poIdentifier name="cabinFloor'" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+        <org.eventb.core.poIdentifier name="cabinInShaft'" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+        <org.eventb.core.poIdentifier name="cabins'" org.eventb.core.type="ℙ(CABINS)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTHYPcabinGoingToDowqf" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTIDENTcabinGoingToDowq" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="c∈cabins" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.event#_Io-5yNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IpEZUNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="c∉dom(cabinGoingToUp)" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.event#_Io-5yNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IpFAYNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="c∉dom(cabinGoingToDown)" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.event#_Io-5yNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IpFncNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="c∈dom(cabinFloor)" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.event#_Io-5yNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IpGOgNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="cabinFloor(c)=topFloor" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.event#_Io-5yNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IpG1kNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD5" org.eventb.core.predicate="cabinInShaft(c)=1" org.eventb.core.source="/MultiElevatorSystem/m1_shafts.bum|org.eventb.core.machineFile#m1_shafts|org.eventb.core.event#_IqCpvNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IqIwUNH1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPcabinGoingToDowq" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTHYPcabinGoingToDowqf" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD6" org.eventb.core.predicate="motorState(cabinMotor(c))=ON" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_IonGUNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IonGUtH1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="CabinLeavesFloorGoingUp/grd8/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTHYPcabinGoingToDowrh"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="c∈dom(cabinMotor)∧cabinMotor∈CABINS ⇸ MOTORS∧cabinMotor(c)∈dom(motorState)∧motorState∈MOTORS ⇸ MOTORSTATES" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_IooUcNH1Eey_7YDWctky8Q|org.eventb.core.guard#_Ioo7gdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_IooUcNH1Eey_7YDWctky8Q|org.eventb.core.guard#_Ioo7gdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTHYPcabinGoingToDowrh"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTcabinGoingToDowr" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="c" org.eventb.core.type="CABINS"/>
+        <org.eventb.core.poIdentifier name="cabinFloor'" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+        <org.eventb.core.poIdentifier name="cabinGoingToUp'" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTHYPcabinGoingToDowrh" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTIDENTcabinGoingToDowr" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="c∈cabins" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.event#_IpIDsNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IpIqwdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="c∈dom(cabinFloor)" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.event#_IpIDsNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IpJR0NH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="cabinFloor(c)&lt;topFloor" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.event#_IpIDsNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IpJ44NH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="c∉dom(cabinGoingToDown)" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.event#_IpIDsNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IpJ44dH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="¬(∃cab⦂CABINS·cab∈cabins∧dom(cabinFloor ▷ {cabinFloor(c)+1})={cab}∧cabinInShaft(cab)=1)" org.eventb.core.source="/MultiElevatorSystem/m1_shafts.bum|org.eventb.core.machineFile#m1_shafts|org.eventb.core.event#_IqIwUtH1Eey_7YDWctky8Q|org.eventb.core.guard#_IqIwVNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD5" org.eventb.core.predicate="¬(∃cab⦂CABINS·cab∈cabins∧dom(cabinGoingToUp ▷ {cabinFloor(c)+1})={cab}∧cabinInShaft(cab)=1)" org.eventb.core.source="/MultiElevatorSystem/m1_shafts.bum|org.eventb.core.machineFile#m1_shafts|org.eventb.core.event#_IqIwUtH1Eey_7YDWctky8Q|org.eventb.core.guard#_IqIwVdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD6" org.eventb.core.predicate="cabinInShaft(c)≠2" org.eventb.core.source="/MultiElevatorSystem/m1_shafts.bum|org.eventb.core.machineFile#m1_shafts|org.eventb.core.event#_IqIwUtH1Eey_7YDWctky8Q|org.eventb.core.guard#_IqIwVtH1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPcabinGoingToDowr" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTHYPcabinGoingToDowrh" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD7" org.eventb.core.predicate="motorState(cabinMotor(c))=ON" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_IooUcNH1Eey_7YDWctky8Q|org.eventb.core.guard#_Ioo7gdH1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTIDENTcabinGoingToDows" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="c" org.eventb.core.type="CABINS"/>
+        <org.eventb.core.poIdentifier name="cabinFloor'" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+        <org.eventb.core.poIdentifier name="cabinGoingToUp'" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPcabinGoingToDows" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTIDENTcabinGoingToDows" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="c∈cabins" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.event#_IpJ45NH1Eey_7YDWctky8Q|org.eventb.core.guard#_IpJ45tH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="c∈dom(cabinGoingToUp)" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.event#_IpJ45NH1Eey_7YDWctky8Q|org.eventb.core.guard#_IpJ459H1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="CabinLeavesFloorGoingDown/grd8/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTHYPcabinGoingToDowth"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="c∈dom(cabinMotor)∧cabinMotor∈CABINS ⇸ MOTORS∧cabinMotor(c)∈dom(motorState)∧motorState∈MOTORS ⇸ MOTORSTATES" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_IoqJoNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IoqwsNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_IoqJoNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IoqwsNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTHYPcabinGoingToDowth"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTcabinGoingToDowt" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="c" org.eventb.core.type="CABINS"/>
+        <org.eventb.core.poIdentifier name="cabinFloor'" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+        <org.eventb.core.poIdentifier name="cabinGoingToDown'" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTHYPcabinGoingToDowth" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTIDENTcabinGoingToDowt" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="c∈cabins" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.event#_IpJ46tH1Eey_7YDWctky8Q|org.eventb.core.guard#_IpPYcNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="c∈dom(cabinFloor)" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.event#_IpJ46tH1Eey_7YDWctky8Q|org.eventb.core.guard#_IpPYcdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="cabinFloor(c)&gt;1" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.event#_IpJ46tH1Eey_7YDWctky8Q|org.eventb.core.guard#_IpPYctH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="c∉dom(cabinGoingToUp)" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.event#_IpJ46tH1Eey_7YDWctky8Q|org.eventb.core.guard#_IpPYc9H1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="¬(∃cab⦂CABINS·cab∈cabins∧dom(cabinFloor ▷ {cabinFloor(c) − 1})={cab}∧cabinInShaft(cab)=2)" org.eventb.core.source="/MultiElevatorSystem/m1_shafts.bum|org.eventb.core.machineFile#m1_shafts|org.eventb.core.event#_IqLzotH1Eey_7YDWctky8Q|org.eventb.core.guard#_IqLzpNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD5" org.eventb.core.predicate="¬(∃cab⦂CABINS·cab∈cabins∧dom(cabinGoingToDown ▷ {cabinFloor(c) − 1})={cab}∧cabinInShaft(cab)=2)" org.eventb.core.source="/MultiElevatorSystem/m1_shafts.bum|org.eventb.core.machineFile#m1_shafts|org.eventb.core.event#_IqLzotH1Eey_7YDWctky8Q|org.eventb.core.guard#_IqNo0NH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD6" org.eventb.core.predicate="cabinInShaft(c)≠1" org.eventb.core.source="/MultiElevatorSystem/m1_shafts.bum|org.eventb.core.machineFile#m1_shafts|org.eventb.core.event#_IqLzotH1Eey_7YDWctky8Q|org.eventb.core.guard#_IqNo0dH1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPcabinGoingToDowt" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTHYPcabinGoingToDowth" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD7" org.eventb.core.predicate="motorState(cabinMotor(c))=ON" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_IoqJoNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IoqwsNH1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTIDENTcabinGoingToDowu" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="c" org.eventb.core.type="CABINS"/>
+        <org.eventb.core.poIdentifier name="cabinFloor'" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+        <org.eventb.core.poIdentifier name="cabinGoingToDown'" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPcabinGoingToDowu" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTIDENTcabinGoingToDowu" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="c∈cabins" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.event#_IpPYdtH1Eey_7YDWctky8Q|org.eventb.core.guard#_IpPYeNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="c∈dom(cabinGoingToDown)" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.event#_IpPYdtH1Eey_7YDWctky8Q|org.eventb.core.guard#_IpPYedH1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="CabinUpToDown/grd7/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTHYPcabinGoingToDowv+"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="c∈dom(cabinMotor)∧cabinMotor∈CABINS ⇸ MOTORS∧cabinMotor(c)∈dom(motorState)∧motorState∈MOTORS ⇸ MOTORSTATES" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_IorXwdH1Eey_7YDWctky8Q|org.eventb.core.guard#_Iosl4NH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_IorXwdH1Eey_7YDWctky8Q|org.eventb.core.guard#_Iosl4NH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTHYPcabinGoingToDowv+"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTcabinGoingToDowv" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="c" org.eventb.core.type="CABINS"/>
+        <org.eventb.core.poIdentifier name="cabinInShaft'" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTHYPcabinGoingToDowv+" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTIDENTcabinGoingToDowv" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="c∈cabins" org.eventb.core.source="/MultiElevatorSystem/m1_shafts.bum|org.eventb.core.machineFile#m1_shafts|org.eventb.core.event#_IqO28dH1Eey_7YDWctky8Q|org.eventb.core.guard#_IqPeAdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="c∈dom(cabinFloor)" org.eventb.core.source="/MultiElevatorSystem/m1_shafts.bum|org.eventb.core.machineFile#m1_shafts|org.eventb.core.event#_IqO28dH1Eey_7YDWctky8Q|org.eventb.core.guard#_IqQFENH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="cabinFloor(c)=topFloor" org.eventb.core.source="/MultiElevatorSystem/m1_shafts.bum|org.eventb.core.machineFile#m1_shafts|org.eventb.core.event#_IqO28dH1Eey_7YDWctky8Q|org.eventb.core.guard#_IqQFEdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="cabinInShaft(c)=1" org.eventb.core.source="/MultiElevatorSystem/m1_shafts.bum|org.eventb.core.machineFile#m1_shafts|org.eventb.core.event#_IqO28dH1Eey_7YDWctky8Q|org.eventb.core.guard#_IqQsINH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="¬(∃cab⦂CABINS·cab∈cabins∧cab∈dom(cabinFloor ▷ {topFloor})∧cabinInShaft(cab)=2)" org.eventb.core.source="/MultiElevatorSystem/m1_shafts.bum|org.eventb.core.machineFile#m1_shafts|org.eventb.core.event#_IqO28dH1Eey_7YDWctky8Q|org.eventb.core.guard#_IqRTMNH1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPcabinGoingToDowv" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTHYPcabinGoingToDowv+" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD5" org.eventb.core.predicate="motorState(cabinMotor(c))=ON" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_IorXwdH1Eey_7YDWctky8Q|org.eventb.core.guard#_Iosl4NH1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="CabinDownToUp/grd7/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTHYPcabinGoingToDoww+"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="c∈dom(cabinMotor)∧cabinMotor∈CABINS ⇸ MOTORS∧cabinMotor(c)∈dom(motorState)∧motorState∈MOTORS ⇸ MOTORSTATES" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_Iosl4dH1Eey_7YDWctky8Q|org.eventb.core.guard#_IotM8dH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_Iosl4dH1Eey_7YDWctky8Q|org.eventb.core.guard#_IotM8dH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTHYPcabinGoingToDoww+"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTcabinGoingToDoww" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="c" org.eventb.core.type="CABINS"/>
+        <org.eventb.core.poIdentifier name="cabinInShaft'" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTHYPcabinGoingToDoww+" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTIDENTcabinGoingToDoww" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="c∈cabins" org.eventb.core.source="/MultiElevatorSystem/m1_shafts.bum|org.eventb.core.machineFile#m1_shafts|org.eventb.core.event#_IqR6QNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IqShUNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="c∈dom(cabinFloor)" org.eventb.core.source="/MultiElevatorSystem/m1_shafts.bum|org.eventb.core.machineFile#m1_shafts|org.eventb.core.event#_IqR6QNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IqShUdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="cabinFloor(c)=1" org.eventb.core.source="/MultiElevatorSystem/m1_shafts.bum|org.eventb.core.machineFile#m1_shafts|org.eventb.core.event#_IqR6QNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IqTIYNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="cabinInShaft(c)=2" org.eventb.core.source="/MultiElevatorSystem/m1_shafts.bum|org.eventb.core.machineFile#m1_shafts|org.eventb.core.event#_IqR6QNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IqTIYdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="¬(∃cab⦂CABINS·cab∈cabins∧cab∈dom(cabinFloor ▷ {1})∧cabinInShaft(cab)=1)" org.eventb.core.source="/MultiElevatorSystem/m1_shafts.bum|org.eventb.core.machineFile#m1_shafts|org.eventb.core.event#_IqR6QNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IqTvcNH1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPcabinGoingToDoww" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTHYPcabinGoingToDoww+" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD5" org.eventb.core.predicate="motorState(cabinMotor(c))=ON" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_Iosl4dH1Eey_7YDWctky8Q|org.eventb.core.guard#_IotM8dH1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="MotorStarts/grd3/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTHYPcabinGoingToDowx("/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="c∈dom(cabinMotor)∧cabinMotor∈CABINS ⇸ MOTORS∧cabinMotor(c)∈dom(motorState)∧motorState∈MOTORS ⇸ MOTORSTATES" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_Iot0ANH1Eey_7YDWctky8Q|org.eventb.core.guard#_IovpMdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_Iot0ANH1Eey_7YDWctky8Q|org.eventb.core.guard#_IovpMdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTHYPcabinGoingToDowx("/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="MotorStarts/inv7/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTALLHYPcabinGoingToDowx"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="motorState{cabinMotor(c) ↦ ON}∈MOTORS ⇸ MOTORSTATES" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.invariant#_IokqENH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_Iot0ANH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.invariant#_IokqENH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poSequent#MotorStarts\/inv7\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#HYPc2_motort|org.eventb.core.poPredicate#PRD0"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="MotorStarts/inv12/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTALLHYPcabinGoingToDowx"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀c0⦂CABINS·c0∈cabins⇒cabinMotor(c0)∈dom(motorState{cabinMotor(c) ↦ ON})" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.invariant#_IokqEdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_Iot0ANH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.invariant#_IokqEdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poSequent#MotorStarts\/inv12\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD1"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="MotorStarts/act1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTALLHYPcabinGoingToDowx"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="c∈dom(cabinMotor)∧cabinMotor∈CABINS ⇸ MOTORS" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_Iot0ANH1Eey_7YDWctky8Q|org.eventb.core.action#_IowQQNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_Iot0ANH1Eey_7YDWctky8Q|org.eventb.core.action#_IowQQNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTALLHYPcabinGoingToDowx"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTcabinGoingToDowx" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="motorState'" org.eventb.core.type="ℙ(MOTORS×MOTORSTATES)"/>
+        <org.eventb.core.poIdentifier name="c" org.eventb.core.type="CABINS"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTHYPcabinGoingToDowx(" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTIDENTcabinGoingToDowx" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="c∈cabins" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_Iot0ANH1Eey_7YDWctky8Q|org.eventb.core.guard#_IovCINH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="c∈dom(cabinFloor)" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_Iot0ANH1Eey_7YDWctky8Q|org.eventb.core.guard#_IovpMNH1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPcabinGoingToDowx" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTHYPcabinGoingToDowx(" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="motorState(cabinMotor(c))=OFF" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_Iot0ANH1Eey_7YDWctky8Q|org.eventb.core.guard#_IovpMdH1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="MotorStops/grd3/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTHYPcabinGoingToDowy("/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="c∈dom(cabinMotor)∧cabinMotor∈CABINS ⇸ MOTORS∧cabinMotor(c)∈dom(motorState)∧motorState∈MOTORS ⇸ MOTORSTATES" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_Iow3UNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IozTkNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_Iow3UNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IozTkNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTHYPcabinGoingToDowy("/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="MotorStops/inv7/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTALLHYPcabinGoingToDowy"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="motorState{cabinMotor(c) ↦ OFF}∈MOTORS ⇸ MOTORSTATES" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.invariant#_IokqENH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_Iow3UNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.invariant#_IokqENH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poSequent#MotorStops\/inv7\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#HYPc2_motort|org.eventb.core.poPredicate#PRD0"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="MotorStops/inv12/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTALLHYPcabinGoingToDowy"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀c0⦂CABINS·c0∈cabins⇒cabinMotor(c0)∈dom(motorState{cabinMotor(c) ↦ OFF})" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.invariant#_IokqEdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_Iow3UNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.invariant#_IokqEdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poSequent#MotorStops\/inv12\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD1"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="MotorStops/act1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTALLHYPcabinGoingToDowy"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="c∈dom(cabinMotor)∧cabinMotor∈CABINS ⇸ MOTORS" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_Iow3UNH1Eey_7YDWctky8Q|org.eventb.core.action#_Ioz6oNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_Iow3UNH1Eey_7YDWctky8Q|org.eventb.core.action#_Ioz6oNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTALLHYPcabinGoingToDowy"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTcabinGoingToDowy" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="motorState'" org.eventb.core.type="ℙ(MOTORS×MOTORSTATES)"/>
+        <org.eventb.core.poIdentifier name="c" org.eventb.core.type="CABINS"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTHYPcabinGoingToDowy(" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTIDENTcabinGoingToDowy" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="c∈cabins" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_Iow3UNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IoyFcNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="c∈dom(cabinFloor)" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_Iow3UNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IoysgNH1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPcabinGoingToDowy" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#EVTHYPcabinGoingToDowy(" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="motorState(cabinMotor(c))=ON" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_Iow3UNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IozTkNH1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="HYPc2_motort" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="motorState∈MOTORS ⇸ MOTORSTATES" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.invariant#_IokqENH1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m2_motors.bpo|org.eventb.core.poFile#m2_motors|org.eventb.core.poPredicateSet#HYPc2_motort" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="∀c⦂CABINS·c∈cabins⇒cabinMotor(c)∈dom(motorState)" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.invariant#_IokqEdH1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+</org.eventb.core.poFile>

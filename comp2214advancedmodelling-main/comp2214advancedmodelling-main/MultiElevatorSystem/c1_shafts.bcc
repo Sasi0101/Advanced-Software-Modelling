@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.scContextFile org.eventb.core.accurate="true" org.eventb.core.configuration="org.eventb.core.fwd;ac.soton.xeventb.xcontext.base">
+    <org.eventb.core.scExtendsContext name="'" org.eventb.core.scTarget="/MultiElevatorSystem/c0_cabins.bcc|org.eventb.core.scContextFile#c0_cabins" org.eventb.core.source="/MultiElevatorSystem/c1_shafts.buc|org.eventb.core.contextFile#c1_shafts|org.eventb.core.extendsContext#_IsjLINH1Eey_7YDWctky8Q"/>
+    <org.eventb.core.scInternalContext name="c0_cabins">
+        <org.eventb.core.scAxiom name="'" org.eventb.core.label="axm1" org.eventb.core.predicate="topFloor=4" org.eventb.core.source="/MultiElevatorSystem/c0_cabins.buc|org.eventb.core.contextFile#c0_cabins|org.eventb.core.axiom#_IsbPUdH1Eey_7YDWctky8Q" org.eventb.core.theorem="false"/>
+        <org.eventb.core.scAxiom name="(" org.eventb.core.label="axm2" org.eventb.core.predicate="floor=1 ‥ topFloor" org.eventb.core.source="/MultiElevatorSystem/c0_cabins.buc|org.eventb.core.contextFile#c0_cabins|org.eventb.core.axiom#_Isb2YNH1Eey_7YDWctky8Q" org.eventb.core.theorem="false"/>
+        <org.eventb.core.scConstant name="floor" org.eventb.core.source="/MultiElevatorSystem/c0_cabins.buc|org.eventb.core.contextFile#c0_cabins|org.eventb.core.constant#_IsbPUNH1Eey_7YDWctky8Q" org.eventb.core.type="ℙ(ℤ)"/>
+        <org.eventb.core.scConstant name="topFloor" org.eventb.core.source="/MultiElevatorSystem/c0_cabins.buc|org.eventb.core.contextFile#c0_cabins|org.eventb.core.constant#_IsaoQNH1Eey_7YDWctky8Q" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.scCarrierSet name="CABINS" org.eventb.core.source="/MultiElevatorSystem/c0_cabins.buc|org.eventb.core.contextFile#c0_cabins|org.eventb.core.carrierSet#_IsaBMNH1Eey_7YDWctky8Q" org.eventb.core.type="ℙ(CABINS)"/>
+    </org.eventb.core.scInternalContext>
+    <org.eventb.core.scAxiom name="c0_cabint" org.eventb.core.label="axm3" org.eventb.core.predicate="shafts=1 ‥ 2" org.eventb.core.source="/MultiElevatorSystem/c1_shafts.buc|org.eventb.core.contextFile#c1_shafts|org.eventb.core.axiom#_IskZQNH1Eey_7YDWctky8Q" org.eventb.core.theorem="false"/>
+    <org.eventb.core.scConstant name="shafts" org.eventb.core.source="/MultiElevatorSystem/c1_shafts.buc|org.eventb.core.contextFile#c1_shafts|org.eventb.core.constant#_IsjyMdH1Eey_7YDWctky8Q" org.eventb.core.type="ℙ(ℤ)"/>
+    <org.eventb.core.scCarrierSet name="SHAFTS" org.eventb.core.source="/MultiElevatorSystem/c1_shafts.buc|org.eventb.core.contextFile#c1_shafts|org.eventb.core.carrierSet#_IsjyMNH1Eey_7YDWctky8Q" org.eventb.core.type="ℙ(SHAFTS)"/>
+</org.eventb.core.scContextFile>

@@ -1,0 +1,74 @@
+machine m1_shafts
+refines m0_cabins
+sees c1_shafts
+variables
+	cabins
+	cabinFloor
+	cabinGoingToUp
+	cabinGoingToDown
+	cabinInShaft
+invariants
+@inv6: cabinInShaft ∈ cabins → shafts
+events
+	event INITIALISATION extends INITIALISATION
+	begin
+	@act5: cabinInShaft ≔ ∅
+	end
+
+	event AddCabin extends AddCabin
+	where
+	@grd3: ¬(∃ cab · cab ∈ cabins ∧ dom(cabinFloor ▷ {1}) = {cab} ∧ cabinInShaft(cab) = 1)
+	then
+	@act3: cabinInShaft(c) ≔ 1
+	end
+
+	event RemoveCabin extends RemoveCabin
+	where
+	@grd6: cabinInShaft(c) = 1
+	then
+	@act3: cabinInShaft ≔ {c} ⩤ cabinInShaft
+	end
+
+	event CabinLeavesFloorGoingUp extends CabinLeavesFloorGoingUp
+	where
+	@grd5: ¬(∃ cab · cab ∈ cabins ∧ dom(cabinFloor ▷ {cabinFloor(c) + 1}) = {cab} ∧ cabinInShaft(cab) = 1)
+	@grd6: ¬(∃ cab · cab ∈ cabins ∧ dom(cabinGoingToUp ▷ {cabinFloor(c) + 1}) = {cab} ∧ cabinInShaft(cab) = 1)
+	@grd7: cabinInShaft(c) ≠ 2
+	end
+
+	event CabinReachesFloorGoingUp extends CabinReachesFloorGoingUp
+	end
+
+	event CabinLeavesFloorGoingDown extends CabinLeavesFloorGoingDown
+	where
+	@grd5: ¬(∃ cab · cab ∈ cabins ∧ dom(cabinFloor ▷ {cabinFloor(c) − 1}) = {cab} ∧ cabinInShaft(cab) = 2)
+	@grd6: ¬(∃ cab · cab ∈ cabins ∧ dom(cabinGoingToDown ▷ {cabinFloor(c) − 1}) = {cab} ∧ cabinInShaft(cab) = 2)
+	@grd7: cabinInShaft(c) ≠ 1
+	end
+
+	event CabinReachesFloorGoingDown extends CabinReachesFloorGoingDown
+	end
+	
+	event CabinUpToDown
+	any c where
+	@grd1: c ∈ cabins
+	@grd2: c ∈ dom(cabinFloor)
+	@grd3: cabinFloor(c) = topFloor
+	@grd4: cabinInShaft(c) = 1
+	@grd5: ¬(∃ cab · cab ∈ cabins ∧ cab ∈ dom(cabinFloor ▷ {topFloor}) ∧ cabinInShaft(cab) = 2)
+	then
+	@act1: cabinInShaft(c) ≔ 2
+	end
+	
+	event CabinDownToUp
+	any c where
+	@grd1: c ∈ cabins
+	@grd2: c ∈ dom(cabinFloor)
+	@grd3: cabinFloor(c) = 1
+	@grd4: cabinInShaft(c) = 2
+	@grd5: ¬(∃ cab · cab ∈ cabins ∧ cab ∈ dom(cabinFloor ▷ {1}) ∧ cabinInShaft(cab) = 1)
+	then
+	@act1: cabinInShaft(c) ≔ 1
+	end
+
+end

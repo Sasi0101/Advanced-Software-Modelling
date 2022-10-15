@@ -1,0 +1,247 @@
+machine m5_impl
+refines m4_buttons
+sees c4_buttons
+variables
+	cabins
+	cabinFloor
+	cabinGoingToUp
+	cabinGoingToDown
+	cabinInShaft
+	motorState
+	doorState
+	activeFloorUpButtonsArray
+	activeFloorDownButtonsArray
+	activateCabinButtonsArray
+invariants
+	@inv9: activeFloorUpButtonsArray ∈ ℙ(floor ∖ {topFloor})
+	@inv10: activeFloorDownButtonsArray ∈ ℙ(floor ∖ {1})
+	@inv11: activateCabinButtonsArray ∈ cabins → ℙ(floor)
+	//@inv12: activeFloorUpButtonsArray ∈ ℙ(dom(activeFloorUpButtons) ∖ {topFloor})
+	//@inv13: activeFloorDownButtonsArray ∈ ℙ(dom(activeFloorDownButtons) ∖ {1})
+events
+	event INITIALISATION
+	then
+		@act1: cabins ≔ ∅
+		@act2: cabinFloor ≔ ∅
+		@act3: cabinGoingToUp ≔ ∅
+		@act4: cabinGoingToDown ≔ ∅
+		@act5: cabinInShaft ≔ ∅
+		@act6: motorState ≔ ∅
+		@act7: doorState ≔ ∅
+		@act8: activeFloorUpButtonsArray ≔ ∅
+		@act9: activeFloorDownButtonsArray ≔ ∅
+		@act10: activateCabinButtonsArray ≔ ∅
+	end
+
+	event AddCabin
+	refines AddCabin
+	any
+		c
+	where
+		@grd1: c ∈ CABINS
+		@grd2: c ∉ cabins
+		@grd3: ¬(∃ cab · cab ∈ cabins ∧ dom(cabinFloor ▷ {1}) = {cab} ∧ cabinInShaft(cab) = 1)
+	then
+		@act1: cabins ≔ cabins ∪ {c}
+		@act2: cabinFloor(c) ≔ 1
+		@act3: cabinInShaft(c) ≔ 1
+		@act4: motorState(cabinMotor(c)) ≔ OFF
+		@act5: doorState(cabinDoor(c)) ≔ CLOSED
+		@act6: activateCabinButtonsArray ≔ activateCabinButtonsArray ∪ {c ↦ ∅}
+	end
+
+	event RemoveCabin
+	refines RemoveCabin
+	any
+		c
+	where
+		@grd1: c ∈ cabins
+		@grd2: c ∉ dom(cabinGoingToUp)
+		@grd3: c ∉ dom(cabinGoingToDown)
+		@grd4: c ∈ dom(cabinFloor)
+		@grd5: cabinFloor(c) = topFloor
+		@grd6: cabinInShaft(c) = 1
+		@grd7: motorState(cabinMotor(c)) = ON
+		@grd8: doorState(cabinDoor(c)) = CLOSED
+		@grd9: c ∈ dom(activateCabinButtonsArray)
+		@grd10: activateCabinButtonsArray(c) = ∅
+	then
+		@act1: cabins ≔ cabins ∖ {c}
+		@act2: cabinFloor ≔ {c} ⩤ cabinFloor
+		@act3: cabinInShaft ≔ {c} ⩤ cabinInShaft
+		@act4: motorState(cabinMotor(c)) ≔ OFF
+		@act5: activateCabinButtonsArray ≔ {c} ⩤ activateCabinButtonsArray
+	end
+
+	event CabinLeavesFloorGoingUp
+	refines CabinLeavesFloorGoingUp
+	any
+		c
+	where
+		@grd1: c ∈ cabins
+		@grd2: c ∈ dom(cabinFloor)
+		@grd3: cabinFloor(c) < topFloor
+		@grd4: c ∉ dom(cabinGoingToDown)
+		@grd5: ¬(∃ cab · cab ∈ cabins ∧ dom(cabinFloor ▷ {cabinFloor(c) + 1}) = {cab} ∧ cabinInShaft(cab) = 1)
+		@grd6: ¬(∃ cab · cab ∈ cabins ∧ dom(cabinGoingToUp ▷ {cabinFloor(c) + 1}) = {cab} ∧ cabinInShaft(cab) = 1)
+		@grd7: cabinInShaft(c) ≠ 2
+		@grd8: motorState(cabinMotor(c)) = ON
+		@grd9: doorState(cabinDoor(c)) = CLOSED
+		@grd10: c ∈ dom(activateCabinButtonsArray)
+		@grd11: cabinFloor(c) ∉ activeFloorUpButtonsArray
+		@grd12: cabinFloor(c) ∉ activateCabinButtonsArray(c)
+	then
+		@act1: cabinGoingToUp(c) ≔ cabinFloor(c) + 1
+		@act2: cabinFloor ≔ {c} ⩤ cabinFloor
+	end
+
+	event CabinReachesFloorGoingUp extends CabinReachesFloorGoingUp
+	end
+
+	event CabinLeavesFloorGoingDown
+	refines CabinLeavesFloorGoingDown
+	any
+		c
+	where
+		@grd1: c ∈ cabins
+		@grd2: c ∈ dom(cabinFloor)
+		@grd3: cabinFloor(c) > 1
+		@grd4: c ∉ dom(cabinGoingToUp)
+		@grd5: ¬(∃ cab · cab ∈ cabins ∧ dom(cabinFloor ▷ {cabinFloor(c) − 1}) = {cab} ∧ cabinInShaft(cab) = 2)
+		@grd6: ¬(∃ cab · cab ∈ cabins ∧ dom(cabinGoingToDown ▷ {cabinFloor(c) − 1}) = {cab} ∧ cabinInShaft(cab) = 2)
+		@grd7: cabinInShaft(c) ≠ 1
+		@grd8: motorState(cabinMotor(c)) = ON
+		@grd9: doorState(cabinDoor(c)) = CLOSED
+		@grd10: c ∈ dom(activateCabinButtonsArray)
+		@grd11: cabinFloor(c) ∉ activeFloorDownButtonsArray
+		@grd12: cabinFloor(c) ∉ activateCabinButtonsArray(c)
+	then
+		@act1: cabinGoingToDown(c) ≔ cabinFloor(c) − 1
+		@act2: cabinFloor ≔ {c} ⩤ cabinFloor
+	end
+
+	event CabinReachesFloorGoingDown extends CabinReachesFloorGoingDown
+	end
+
+	event CabinUpToDown
+	refines CabinUpToDown
+	any
+		c
+	where
+		@grd1: c ∈ cabins
+		@grd2: c ∈ dom(cabinFloor)
+		@grd3: cabinFloor(c) = topFloor
+		@grd4: cabinInShaft(c) = 1
+		@grd5: ¬(∃ cab · cab ∈ cabins ∧ cab ∈ dom(cabinFloor ▷ {topFloor}) ∧ cabinInShaft(cab) = 2)
+		@grd7: motorState(cabinMotor(c)) = ON
+		@grd8: doorState(cabinDoor(c)) = CLOSED
+		@grd9: c ∈ dom(activateCabinButtonsArray)
+		@grd10: cabinFloor(c) ∉ activateCabinButtonsArray(c)
+	then
+		@act1: cabinInShaft(c) ≔ 2
+	end
+
+	event CabinDownToUp
+	refines CabinDownToUp
+	any
+		c
+	where
+		@grd1: c ∈ cabins
+		@grd2: c ∈ dom(cabinFloor)
+		@grd3: cabinFloor(c) = 1
+		@grd4: cabinInShaft(c) = 2
+		@grd5: ¬(∃ cab · cab ∈ cabins ∧ cab ∈ dom(cabinFloor ▷ {1}) ∧ cabinInShaft(cab) = 1)
+		@grd7: motorState(cabinMotor(c)) = ON
+		@grd8: doorState(cabinDoor(c)) = CLOSED
+		@grd9: c ∈ dom(activateCabinButtonsArray)
+		@grd10: cabinFloor(c) ∉ activateCabinButtonsArray(c)
+	then
+		@act1: cabinInShaft(c) ≔ 1
+	end
+
+	event MotorStarts extends MotorStarts
+	end
+
+	event MotorStops extends MotorStops
+	end
+
+	event DoorClosedToHalf extends DoorClosedToHalf
+	end
+
+	event DoorHalfToOpenShaft1
+	refines DoorHalfToOpenShaft1
+	any
+		c
+	where
+		@grd1: c ∈ cabins
+		@grd2: c ∈ dom(cabinFloor)
+		@grd3: motorState(cabinMotor(c)) = OFF
+		@grd4: doorState(cabinDoor(c)) = HALF
+		@grd5: cabinInShaft(c) = 1
+		@grd6: c ∈ dom(activateCabinButtonsArray)
+	then
+		@act1: doorState(cabinDoor(c)) ≔ OPEN
+		@act2: activeFloorUpButtonsArray ≔ activeFloorUpButtonsArray ∖ {cabinFloor(c)}
+		@act3: activateCabinButtonsArray(c) ≔ activateCabinButtonsArray(c) ∖ {cabinFloor(c)}
+	end
+
+	event DoorHalfToOpenShaft2
+	refines DoorHalfToOpenShaft2
+	any
+		c
+	where
+		@grd1: c ∈ cabins
+		@grd2: c ∈ dom(cabinFloor)
+		@grd3: motorState(cabinMotor(c)) = OFF
+		@grd4: doorState(cabinDoor(c)) = HALF
+		@grd5: cabinInShaft(c) = 2
+		@grd6: c ∈ dom(activateCabinButtonsArray)
+	then
+		@act1: doorState(cabinDoor(c)) ≔ OPEN
+		@act2: activeFloorDownButtonsArray ≔ activeFloorDownButtonsArray ∖ {cabinFloor(c)}
+		@act3: activateCabinButtonsArray(c) ≔ activateCabinButtonsArray(c) ∖ {cabinFloor(c)}
+	end
+
+	event DoorOpenToHalf extends DoorOpenToHalf
+	end
+
+	event DoorHalfToClosed extends DoorHalfToClosed
+	end
+
+	event UserPressesUpButton
+	refines UserPressesUpButton
+	any
+		f
+	where
+		@grd1: f ∈ floor
+		@grd2: f ∈ dom(floorUpButtons)
+		@grd3: f ≠ topFloor
+	then
+		@act1: activeFloorUpButtonsArray ≔ activeFloorUpButtonsArray ∪ {f}
+	end
+
+	event UserPressesDownButton
+	refines UserPressesDownButton
+	any
+		f
+	where
+		@grd1: f ∈ floor
+		@grd2: f ∈ dom(floorDownButtons)
+	then
+		@act1: activeFloorDownButtonsArray ≔ activeFloorDownButtonsArray ∪ {f}
+	end
+
+	event UserPressesFloorButton
+	refines UserPressesFloorButton
+	any
+		c
+		f
+	where
+		@grd1: c ∈ cabins
+		@grd2: f ∈ floor
+		@grd3: c ∈ dom(activateCabinButtonsArray)
+	then
+		@act1: activateCabinButtonsArray(c) ≔ activateCabinButtonsArray(c) ∪ {f}
+	end
+
+end

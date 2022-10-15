@@ -1,0 +1,76 @@
+machine m2_motors
+refines m1_shafts
+sees c2_motors
+variables
+	cabins
+	cabinFloor
+	cabinGoingToUp
+	cabinGoingToDown
+	cabinInShaft
+	motorState
+invariants
+@inv7: motorState ∈ MOTORS ⇸ MOTORSTATES
+@inv12: ∀ c · c ∈ cabins ⇒ cabinMotor(c) ∈ dom(motorState)
+events
+	event INITIALISATION extends INITIALISATION
+	begin
+	@act6: motorState ≔ ∅ 
+	end
+
+	event AddCabin extends AddCabin
+	begin
+	@act4: motorState(cabinMotor(c)) ≔ OFF
+	end
+
+	event RemoveCabin extends RemoveCabin
+	where
+	@grd7: motorState(cabinMotor(c)) = ON
+	then
+	@act4: motorState(cabinMotor(c)) ≔ OFF
+	end
+
+	event CabinLeavesFloorGoingUp extends CabinLeavesFloorGoingUp
+	where
+	@grd8: motorState(cabinMotor(c)) = ON
+	end
+
+	event CabinReachesFloorGoingUp extends CabinReachesFloorGoingUp
+	end
+
+	event CabinLeavesFloorGoingDown extends CabinLeavesFloorGoingDown
+	where
+	@grd8: motorState(cabinMotor(c)) = ON
+	end
+
+	event CabinReachesFloorGoingDown extends CabinReachesFloorGoingDown
+	end
+
+	event CabinUpToDown extends CabinUpToDown
+	where
+	@grd7: motorState(cabinMotor(c)) = ON
+	end
+
+	event CabinDownToUp extends CabinDownToUp
+	where
+	@grd7: motorState(cabinMotor(c)) = ON
+	end
+	
+	event MotorStarts
+	any c where
+	@grd1: c ∈ cabins
+	@grd2: c ∈ dom(cabinFloor)
+	@grd3: motorState(cabinMotor(c)) = OFF
+	then
+	@act1: motorState(cabinMotor(c)) ≔ ON
+	end
+	
+	event MotorStops
+	any c where
+	@grd1: c ∈ cabins
+	@grd2: c ∈ dom(cabinFloor)
+	@grd3: motorState(cabinMotor(c)) = ON
+	then
+	@act1: motorState(cabinMotor(c)) ≔ OFF
+	end
+
+end

@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.poFile org.eventb.core.poStamp="0">
+    <org.eventb.core.poPredicateSet name="CTXHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="CABINS" org.eventb.core.type="ℙ(CABINS)"/>
+        <org.eventb.core.poIdentifier name="floor" org.eventb.core.type="ℙ(ℤ)"/>
+        <org.eventb.core.poIdentifier name="topFloor" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poPredicate name="topFloos" org.eventb.core.predicate="topFloor=4" org.eventb.core.source="/MultiElevatorSystem/c0_cabins.buc|org.eventb.core.contextFile#c0_cabins|org.eventb.core.axiom#_IsbPUdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="topFloot" org.eventb.core.predicate="floor=1 ‥ topFloor" org.eventb.core.source="/MultiElevatorSystem/c0_cabins.buc|org.eventb.core.contextFile#c0_cabins|org.eventb.core.axiom#_Isb2YNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poIdentifier name="SHAFTS" org.eventb.core.type="ℙ(SHAFTS)"/>
+        <org.eventb.core.poIdentifier name="shafts" org.eventb.core.type="ℙ(ℤ)"/>
+        <org.eventb.core.poPredicate name="topFloou" org.eventb.core.predicate="shafts=1 ‥ 2" org.eventb.core.source="/MultiElevatorSystem/c1_shafts.buc|org.eventb.core.contextFile#c1_shafts|org.eventb.core.axiom#_IskZQNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poIdentifier name="MOTORSTATES" org.eventb.core.type="ℙ(MOTORSTATES)"/>
+        <org.eventb.core.poIdentifier name="MOTORS" org.eventb.core.type="ℙ(MOTORS)"/>
+        <org.eventb.core.poIdentifier name="OFF" org.eventb.core.type="MOTORSTATES"/>
+        <org.eventb.core.poIdentifier name="ON" org.eventb.core.type="MOTORSTATES"/>
+        <org.eventb.core.poIdentifier name="cabinMotor" org.eventb.core.type="ℙ(CABINS×MOTORS)"/>
+        <org.eventb.core.poPredicate name="MOTORSTATET" org.eventb.core.predicate="partition(MOTORSTATES,{OFF},{ON})" org.eventb.core.source="/MultiElevatorSystem/c2_motors.buc|org.eventb.core.contextFile#c2_motors|org.eventb.core.axiom#_IsuKQNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="MOTORSTATEU" org.eventb.core.predicate="cabinMotor∈CABINS ⤖ MOTORS" org.eventb.core.source="/MultiElevatorSystem/c2_motors.buc|org.eventb.core.contextFile#c2_motors|org.eventb.core.axiom#_IsuxUNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poIdentifier name="DOORS" org.eventb.core.type="ℙ(DOORS)"/>
+        <org.eventb.core.poIdentifier name="DOORSTATES" org.eventb.core.type="ℙ(DOORSTATES)"/>
+        <org.eventb.core.poIdentifier name="HALF" org.eventb.core.type="DOORSTATES"/>
+        <org.eventb.core.poIdentifier name="cabinDoor" org.eventb.core.type="ℙ(CABINS×DOORS)"/>
+        <org.eventb.core.poIdentifier name="CLOSED" org.eventb.core.type="DOORSTATES"/>
+        <org.eventb.core.poIdentifier name="OPEN" org.eventb.core.type="DOORSTATES"/>
+        <org.eventb.core.poPredicate name="MOTORSTATEV" org.eventb.core.predicate="partition(DOORSTATES,{OPEN},{HALF},{CLOSED})" org.eventb.core.source="/MultiElevatorSystem/c3_doors.buc|org.eventb.core.contextFile#c3_doors|org.eventb.core.axiom#_Is2GENH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="MOTORSTATEW" org.eventb.core.predicate="cabinDoor∈CABINS ⤖ DOORS" org.eventb.core.source="/MultiElevatorSystem/c3_doors.buc|org.eventb.core.contextFile#c3_doors|org.eventb.core.axiom#_Is2GEdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poIdentifier name="DOWNBUTTONS" org.eventb.core.type="ℙ(DOWNBUTTONS)"/>
+        <org.eventb.core.poIdentifier name="UPBUTTONS" org.eventb.core.type="ℙ(UPBUTTONS)"/>
+        <org.eventb.core.poIdentifier name="floorDownButtons" org.eventb.core.type="ℙ(ℤ×DOWNBUTTONS)"/>
+        <org.eventb.core.poIdentifier name="cabinButtons" org.eventb.core.type="ℙ(CABINS×ℙ(ℤ))"/>
+        <org.eventb.core.poIdentifier name="floorUpButtons" org.eventb.core.type="ℙ(ℤ×UPBUTTONS)"/>
+        <org.eventb.core.poPredicate name="floorDownButtont" org.eventb.core.predicate="floorUpButtons∈floor ∖ {topFloor} ⤖ UPBUTTONS" org.eventb.core.source="/MultiElevatorSystem/c4_buttons.buc|org.eventb.core.contextFile#c4_buttons|org.eventb.core.axiom#_IsQ3QdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="floorDownButtonu" org.eventb.core.predicate="floorDownButtons∈floor ∖ {1} ⤖ DOWNBUTTONS" org.eventb.core.source="/MultiElevatorSystem/c4_buttons.buc|org.eventb.core.contextFile#c4_buttons|org.eventb.core.axiom#_IsReUNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="floorDownButtonv" org.eventb.core.predicate="∀c⦂CABINS,f⦂ℤ·c∈CABINS∧f∈floor⇒cabinButtons(c)=floor" org.eventb.core.source="/MultiElevatorSystem/c4_buttons.buc|org.eventb.core.contextFile#c4_buttons|org.eventb.core.axiom#_IsSFYNH1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="cabinGoingToUp" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+        <org.eventb.core.poIdentifier name="doorState" org.eventb.core.type="ℙ(DOORS×DOORSTATES)"/>
+        <org.eventb.core.poIdentifier name="motorState" org.eventb.core.type="ℙ(MOTORS×MOTORSTATES)"/>
+        <org.eventb.core.poIdentifier name="cabinGoingToDown" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+        <org.eventb.core.poIdentifier name="activateCabinButtons" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+        <org.eventb.core.poIdentifier name="cabinFloor" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+        <org.eventb.core.poIdentifier name="cabinInShaft" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+        <org.eventb.core.poIdentifier name="activeFloorUpButtons" org.eventb.core.type="ℙ(ℤ×UPBUTTONS)"/>
+        <org.eventb.core.poIdentifier name="activeFloorDownButtons" org.eventb.core.type="ℙ(ℤ×DOWNBUTTONS)"/>
+        <org.eventb.core.poIdentifier name="cabins" org.eventb.core.type="ℙ(CABINS)"/>
+        <org.eventb.core.poPredicate name="activeFloorDownButtont" org.eventb.core.predicate="cabins⊆CABINS" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.invariant#_Io7PYNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="activeFloorDownButtonu" org.eventb.core.predicate="cabinFloor∈cabins ⇸ floor" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.invariant#_Io7PYdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="activeFloorDownButtonv" org.eventb.core.predicate="cabinGoingToUp∈cabins ⇸ floor" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.invariant#_Io72cNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="activeFloorDownButtonw" org.eventb.core.predicate="cabinGoingToDown∈cabins ⇸ floor" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.invariant#_Io8dgNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="activeFloorDownButtonx" org.eventb.core.predicate="∀c⦂CABINS·c∈cabins⇒c∈dom(cabinFloor)∨c∈dom(cabinGoingToUp)∨c∈dom(cabinGoingToDown)" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.invariant#_Io9EkNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="activeFloorDownButtony" org.eventb.core.predicate="cabinInShaft∈cabins → shafts" org.eventb.core.source="/MultiElevatorSystem/m1_shafts.bum|org.eventb.core.machineFile#m1_shafts|org.eventb.core.invariant#_IqCptdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="activeFloorDownButtonz" org.eventb.core.predicate="motorState∈MOTORS ⇸ MOTORSTATES" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.invariant#_IokqENH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="activeFloorDownButton{" org.eventb.core.predicate="∀c⦂CABINS·c∈cabins⇒cabinMotor(c)∈dom(motorState)" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.invariant#_IokqEdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="activeFloorDownButton|" org.eventb.core.predicate="doorState∈DOORS ⇸ DOORSTATES" org.eventb.core.source="/MultiElevatorSystem/m3_doors.bum|org.eventb.core.machineFile#m3_doors|org.eventb.core.invariant#_IrpzQdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="activeFloorDownButton}" org.eventb.core.predicate="∀c⦂CABINS·c∈cabins⇒cabinDoor(c)∈dom(doorState)" org.eventb.core.source="/MultiElevatorSystem/m3_doors.bum|org.eventb.core.machineFile#m3_doors|org.eventb.core.invariant#_IrqaUNH1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="INITIALISATION/inv9/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTALLHYPactiveFloorDownButtont"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="(∅ ⦂ ℙ(ℤ×UPBUTTONS))∈floor ⇸ UPBUTTONS" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.invariant#_IpcMzNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/MultiElevatorSystem/m3_doors.bum|org.eventb.core.machineFile#m3_doors|org.eventb.core.event#_IrrBYNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IpcMz9H1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.invariant#_IpcMzNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poSequent#INITIALISATION\/inv9\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD0"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/inv10/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTALLHYPactiveFloorDownButtont"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="(∅ ⦂ ℙ(ℤ×DOWNBUTTONS))∈floor ⇸ DOWNBUTTONS" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.invariant#_IpcMzdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/MultiElevatorSystem/m3_doors.bum|org.eventb.core.machineFile#m3_doors|org.eventb.core.event#_IrrBYNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IpcMz9H1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.invariant#_IpcMzdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poSequent#INITIALISATION\/inv10\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD1"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/inv11/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTALLHYPactiveFloorDownButtont"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="(∅ ⦂ ℙ(CABINS×ℤ))∈(∅ ⦂ ℙ(CABINS)) ↔ floor" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.invariant#_IpcMztH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/MultiElevatorSystem/m3_doors.bum|org.eventb.core.machineFile#m3_doors|org.eventb.core.event#_IrrBYNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IpcMz9H1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.invariant#_IpcMztH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poSequent#INITIALISATION\/inv11\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD2"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTactiveFloorDownButtont" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="activeFloorUpButtons'" org.eventb.core.type="ℙ(ℤ×UPBUTTONS)"/>
+        <org.eventb.core.poIdentifier name="activeFloorDownButtons'" org.eventb.core.type="ℙ(ℤ×DOWNBUTTONS)"/>
+        <org.eventb.core.poIdentifier name="activateCabinButtons'" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+        <org.eventb.core.poIdentifier name="motorState'" org.eventb.core.type="ℙ(MOTORS×MOTORSTATES)"/>
+        <org.eventb.core.poIdentifier name="cabinFloor'" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+        <org.eventb.core.poIdentifier name="cabinInShaft'" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+        <org.eventb.core.poIdentifier name="cabinGoingToDown'" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+        <org.eventb.core.poIdentifier name="cabinGoingToUp'" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+        <org.eventb.core.poIdentifier name="doorState'" org.eventb.core.type="ℙ(DOORS×DOORSTATES)"/>
+        <org.eventb.core.poIdentifier name="cabins'" org.eventb.core.type="ℙ(CABINS)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPactiveFloorDownButtont" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTIDENTactiveFloorDownButtont" org.eventb.core.poStamp="0"/>
+    <org.eventb.core.poSequent name="AddCabin/inv11/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTALLHYPactiveFloorDownButtonu"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="activateCabinButtons∈cabins∪{c} ↔ floor" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.invariant#_IpcMztH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/MultiElevatorSystem/m3_doors.bum|org.eventb.core.machineFile#m3_doors|org.eventb.core.event#_IrsPgNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IpkIktH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.invariant#_IpcMztH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poSequent#AddCabin\/inv11\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD2"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTactiveFloorDownButtonu" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="motorState'" org.eventb.core.type="ℙ(MOTORS×MOTORSTATES)"/>
+        <org.eventb.core.poIdentifier name="c" org.eventb.core.type="CABINS"/>
+        <org.eventb.core.poIdentifier name="cabinFloor'" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+        <org.eventb.core.poIdentifier name="cabinInShaft'" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+        <org.eventb.core.poIdentifier name="doorState'" org.eventb.core.type="ℙ(DOORS×DOORSTATES)"/>
+        <org.eventb.core.poIdentifier name="cabins'" org.eventb.core.type="ℙ(CABINS)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPactiveFloorDownButtonu" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTIDENTactiveFloorDownButtonu" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="c∈CABINS" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.event#_Io-5wtH1Eey_7YDWctky8Q|org.eventb.core.guard#_Io-5xNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="c∉cabins" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.event#_Io-5wtH1Eey_7YDWctky8Q|org.eventb.core.guard#_Io-5xdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="¬(∃cab⦂CABINS·cab∈cabins∧dom(cabinFloor ▷ {1})={cab}∧cabinInShaft(cab)=1)" org.eventb.core.source="/MultiElevatorSystem/m1_shafts.bum|org.eventb.core.machineFile#m1_shafts|org.eventb.core.event#_IqCpuNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IqCputH1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="RemoveCabin/inv11/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTALLHYPactiveFloorDownButtonv"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="activateCabinButtons∈cabins ∖ {c} ↔ floor" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.invariant#_IpcMztH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/MultiElevatorSystem/m3_doors.bum|org.eventb.core.machineFile#m3_doors|org.eventb.core.event#_IrtdoNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IplWsNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.invariant#_IpcMztH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poSequent#RemoveCabin\/inv11\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD2"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTactiveFloorDownButtonv" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="motorState'" org.eventb.core.type="ℙ(MOTORS×MOTORSTATES)"/>
+        <org.eventb.core.poIdentifier name="c" org.eventb.core.type="CABINS"/>
+        <org.eventb.core.poIdentifier name="cabinFloor'" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+        <org.eventb.core.poIdentifier name="cabinInShaft'" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+        <org.eventb.core.poIdentifier name="cabins'" org.eventb.core.type="ℙ(CABINS)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPactiveFloorDownButtonv" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTIDENTactiveFloorDownButtonv" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="c∈cabins" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.event#_Io-5yNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IpEZUNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="c∉dom(cabinGoingToUp)" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.event#_Io-5yNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IpFAYNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="c∉dom(cabinGoingToDown)" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.event#_Io-5yNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IpFncNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="c∈dom(cabinFloor)" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.event#_Io-5yNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IpGOgNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="cabinFloor(c)=topFloor" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.event#_Io-5yNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IpG1kNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD5" org.eventb.core.predicate="cabinInShaft(c)=1" org.eventb.core.source="/MultiElevatorSystem/m1_shafts.bum|org.eventb.core.machineFile#m1_shafts|org.eventb.core.event#_IqCpvNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IqIwUNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD6" org.eventb.core.predicate="motorState(cabinMotor(c))=ON" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_IonGUNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IonGUtH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD7" org.eventb.core.predicate="doorState(cabinDoor(c))=CLOSED" org.eventb.core.source="/MultiElevatorSystem/m3_doors.bum|org.eventb.core.machineFile#m3_doors|org.eventb.core.event#_IrtdoNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IruEsdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD8" org.eventb.core.predicate="ran({c} ◁ activateCabinButtons)=(∅ ⦂ ℙ(ℤ))" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IplWsNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IplWstH1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="CabinLeavesFloorGoingUp/grd10/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTHYPactiveFloorDownButtonwj"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="c∈dom(cabinFloor)∧cabinFloor∈CABINS ⇸ ℤ" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IplWs9H1Eey_7YDWctky8Q|org.eventb.core.guard#_IplWtdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IplWs9H1Eey_7YDWctky8Q|org.eventb.core.guard#_IplWtdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTHYPactiveFloorDownButtonwj"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="CabinLeavesFloorGoingUp/grd11/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTHYPactiveFloorDownButtonwk"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="c∈dom(cabinFloor)∧cabinFloor∈CABINS ⇸ ℤ" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IplWs9H1Eey_7YDWctky8Q|org.eventb.core.guard#_IplWttH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IplWs9H1Eey_7YDWctky8Q|org.eventb.core.guard#_IplWttH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTHYPactiveFloorDownButtonwk"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTactiveFloorDownButtonw" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="c" org.eventb.core.type="CABINS"/>
+        <org.eventb.core.poIdentifier name="cabinFloor'" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+        <org.eventb.core.poIdentifier name="cabinGoingToUp'" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTHYPactiveFloorDownButtonwj" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTIDENTactiveFloorDownButtonw" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="c∈cabins" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.event#_IpIDsNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IpIqwdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="c∈dom(cabinFloor)" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.event#_IpIDsNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IpJR0NH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="cabinFloor(c)&lt;topFloor" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.event#_IpIDsNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IpJ44NH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="c∉dom(cabinGoingToDown)" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.event#_IpIDsNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IpJ44dH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="¬(∃cab⦂CABINS·cab∈cabins∧dom(cabinFloor ▷ {cabinFloor(c)+1})={cab}∧cabinInShaft(cab)=1)" org.eventb.core.source="/MultiElevatorSystem/m1_shafts.bum|org.eventb.core.machineFile#m1_shafts|org.eventb.core.event#_IqIwUtH1Eey_7YDWctky8Q|org.eventb.core.guard#_IqIwVNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD5" org.eventb.core.predicate="¬(∃cab⦂CABINS·cab∈cabins∧dom(cabinGoingToUp ▷ {cabinFloor(c)+1})={cab}∧cabinInShaft(cab)=1)" org.eventb.core.source="/MultiElevatorSystem/m1_shafts.bum|org.eventb.core.machineFile#m1_shafts|org.eventb.core.event#_IqIwUtH1Eey_7YDWctky8Q|org.eventb.core.guard#_IqIwVdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD6" org.eventb.core.predicate="cabinInShaft(c)≠2" org.eventb.core.source="/MultiElevatorSystem/m1_shafts.bum|org.eventb.core.machineFile#m1_shafts|org.eventb.core.event#_IqIwUtH1Eey_7YDWctky8Q|org.eventb.core.guard#_IqIwVtH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD7" org.eventb.core.predicate="motorState(cabinMotor(c))=ON" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_IooUcNH1Eey_7YDWctky8Q|org.eventb.core.guard#_Ioo7gdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD8" org.eventb.core.predicate="doorState(cabinDoor(c))=CLOSED" org.eventb.core.source="/MultiElevatorSystem/m3_doors.bum|org.eventb.core.machineFile#m3_doors|org.eventb.core.event#_IrurwNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IrvS0dH1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTHYPactiveFloorDownButtonwk" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTHYPactiveFloorDownButtonwj" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD9" org.eventb.core.predicate="cabinFloor(c)∉dom(activeFloorUpButtons)" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IplWs9H1Eey_7YDWctky8Q|org.eventb.core.guard#_IplWtdH1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPactiveFloorDownButtonw" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTHYPactiveFloorDownButtonwk" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD10" org.eventb.core.predicate="cabinFloor(c)∉ran({c} ◁ activateCabinButtons)" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IplWs9H1Eey_7YDWctky8Q|org.eventb.core.guard#_IplWttH1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTIDENTactiveFloorDownButtonx" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="c" org.eventb.core.type="CABINS"/>
+        <org.eventb.core.poIdentifier name="cabinFloor'" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+        <org.eventb.core.poIdentifier name="cabinGoingToUp'" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPactiveFloorDownButtonx" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTIDENTactiveFloorDownButtonx" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="c∈cabins" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.event#_IpJ45NH1Eey_7YDWctky8Q|org.eventb.core.guard#_IpJ45tH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="c∈dom(cabinGoingToUp)" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.event#_IpJ45NH1Eey_7YDWctky8Q|org.eventb.core.guard#_IpJ459H1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="CabinLeavesFloorGoingDown/grd10/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTHYPactiveFloorDownButtonyj"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="c∈dom(cabinFloor)∧cabinFloor∈CABINS ⇸ ℤ" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IplWudH1Eey_7YDWctky8Q|org.eventb.core.guard#_IplWu9H1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IplWudH1Eey_7YDWctky8Q|org.eventb.core.guard#_IplWu9H1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTHYPactiveFloorDownButtonyj"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="CabinLeavesFloorGoingDown/grd11/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTHYPactiveFloorDownButtonyk"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="c∈dom(cabinFloor)∧cabinFloor∈CABINS ⇸ ℤ" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IplWudH1Eey_7YDWctky8Q|org.eventb.core.guard#_IplWvNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IplWudH1Eey_7YDWctky8Q|org.eventb.core.guard#_IplWvNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTHYPactiveFloorDownButtonyk"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTactiveFloorDownButtony" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="c" org.eventb.core.type="CABINS"/>
+        <org.eventb.core.poIdentifier name="cabinFloor'" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+        <org.eventb.core.poIdentifier name="cabinGoingToDown'" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTHYPactiveFloorDownButtonyj" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTIDENTactiveFloorDownButtony" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="c∈cabins" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.event#_IpJ46tH1Eey_7YDWctky8Q|org.eventb.core.guard#_IpPYcNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="c∈dom(cabinFloor)" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.event#_IpJ46tH1Eey_7YDWctky8Q|org.eventb.core.guard#_IpPYcdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="cabinFloor(c)&gt;1" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.event#_IpJ46tH1Eey_7YDWctky8Q|org.eventb.core.guard#_IpPYctH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="c∉dom(cabinGoingToUp)" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.event#_IpJ46tH1Eey_7YDWctky8Q|org.eventb.core.guard#_IpPYc9H1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="¬(∃cab⦂CABINS·cab∈cabins∧dom(cabinFloor ▷ {cabinFloor(c) − 1})={cab}∧cabinInShaft(cab)=2)" org.eventb.core.source="/MultiElevatorSystem/m1_shafts.bum|org.eventb.core.machineFile#m1_shafts|org.eventb.core.event#_IqLzotH1Eey_7YDWctky8Q|org.eventb.core.guard#_IqLzpNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD5" org.eventb.core.predicate="¬(∃cab⦂CABINS·cab∈cabins∧dom(cabinGoingToDown ▷ {cabinFloor(c) − 1})={cab}∧cabinInShaft(cab)=2)" org.eventb.core.source="/MultiElevatorSystem/m1_shafts.bum|org.eventb.core.machineFile#m1_shafts|org.eventb.core.event#_IqLzotH1Eey_7YDWctky8Q|org.eventb.core.guard#_IqNo0NH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD6" org.eventb.core.predicate="cabinInShaft(c)≠1" org.eventb.core.source="/MultiElevatorSystem/m1_shafts.bum|org.eventb.core.machineFile#m1_shafts|org.eventb.core.event#_IqLzotH1Eey_7YDWctky8Q|org.eventb.core.guard#_IqNo0dH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD7" org.eventb.core.predicate="motorState(cabinMotor(c))=ON" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_IoqJoNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IoqwsNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD8" org.eventb.core.predicate="doorState(cabinDoor(c))=CLOSED" org.eventb.core.source="/MultiElevatorSystem/m3_doors.bum|org.eventb.core.machineFile#m3_doors|org.eventb.core.event#_Irwg8dH1Eey_7YDWctky8Q|org.eventb.core.guard#_IrxvENH1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTHYPactiveFloorDownButtonyk" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTHYPactiveFloorDownButtonyj" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD9" org.eventb.core.predicate="cabinFloor(c)∉dom(activeFloorDownButtons)" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IplWudH1Eey_7YDWctky8Q|org.eventb.core.guard#_IplWu9H1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPactiveFloorDownButtony" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTHYPactiveFloorDownButtonyk" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD10" org.eventb.core.predicate="cabinFloor(c)∉ran({c} ◁ activateCabinButtons)" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IplWudH1Eey_7YDWctky8Q|org.eventb.core.guard#_IplWvNH1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTIDENTactiveFloorDownButtonz" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="c" org.eventb.core.type="CABINS"/>
+        <org.eventb.core.poIdentifier name="cabinFloor'" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+        <org.eventb.core.poIdentifier name="cabinGoingToDown'" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPactiveFloorDownButtonz" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTIDENTactiveFloorDownButtonz" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="c∈cabins" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.event#_IpPYdtH1Eey_7YDWctky8Q|org.eventb.core.guard#_IpPYeNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="c∈dom(cabinGoingToDown)" org.eventb.core.source="/MultiElevatorSystem/m0_cabins.bum|org.eventb.core.machineFile#m0_cabins|org.eventb.core.event#_IpPYdtH1Eey_7YDWctky8Q|org.eventb.core.guard#_IpPYedH1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="CabinUpToDown/grd9/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTHYPactiveFloorDownButton{f"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="c∈dom(cabinFloor)∧cabinFloor∈CABINS ⇸ ℤ" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IplWv9H1Eey_7YDWctky8Q|org.eventb.core.guard#_IptSgNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IplWv9H1Eey_7YDWctky8Q|org.eventb.core.guard#_IptSgNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTHYPactiveFloorDownButton{f"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTactiveFloorDownButton{" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="c" org.eventb.core.type="CABINS"/>
+        <org.eventb.core.poIdentifier name="cabinInShaft'" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTHYPactiveFloorDownButton{f" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTIDENTactiveFloorDownButton{" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="c∈cabins" org.eventb.core.source="/MultiElevatorSystem/m1_shafts.bum|org.eventb.core.machineFile#m1_shafts|org.eventb.core.event#_IqO28dH1Eey_7YDWctky8Q|org.eventb.core.guard#_IqPeAdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="c∈dom(cabinFloor)" org.eventb.core.source="/MultiElevatorSystem/m1_shafts.bum|org.eventb.core.machineFile#m1_shafts|org.eventb.core.event#_IqO28dH1Eey_7YDWctky8Q|org.eventb.core.guard#_IqQFENH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="cabinFloor(c)=topFloor" org.eventb.core.source="/MultiElevatorSystem/m1_shafts.bum|org.eventb.core.machineFile#m1_shafts|org.eventb.core.event#_IqO28dH1Eey_7YDWctky8Q|org.eventb.core.guard#_IqQFEdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="cabinInShaft(c)=1" org.eventb.core.source="/MultiElevatorSystem/m1_shafts.bum|org.eventb.core.machineFile#m1_shafts|org.eventb.core.event#_IqO28dH1Eey_7YDWctky8Q|org.eventb.core.guard#_IqQsINH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="¬(∃cab⦂CABINS·cab∈cabins∧cab∈dom(cabinFloor ▷ {topFloor})∧cabinInShaft(cab)=2)" org.eventb.core.source="/MultiElevatorSystem/m1_shafts.bum|org.eventb.core.machineFile#m1_shafts|org.eventb.core.event#_IqO28dH1Eey_7YDWctky8Q|org.eventb.core.guard#_IqRTMNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD5" org.eventb.core.predicate="motorState(cabinMotor(c))=ON" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_IorXwdH1Eey_7YDWctky8Q|org.eventb.core.guard#_Iosl4NH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD6" org.eventb.core.predicate="doorState(cabinDoor(c))=CLOSED" org.eventb.core.source="/MultiElevatorSystem/m3_doors.bum|org.eventb.core.machineFile#m3_doors|org.eventb.core.event#_Iry9MNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IrzkQdH1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPactiveFloorDownButton{" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTHYPactiveFloorDownButton{f" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD7" org.eventb.core.predicate="cabinFloor(c)∉ran({c} ◁ activateCabinButtons)" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IplWv9H1Eey_7YDWctky8Q|org.eventb.core.guard#_IptSgNH1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="CabinDownToUp/grd9/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTHYPactiveFloorDownButton\|f"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="c∈dom(cabinFloor)∧cabinFloor∈CABINS ⇸ ℤ" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IptSgdH1Eey_7YDWctky8Q|org.eventb.core.guard#_IptSg9H1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IptSgdH1Eey_7YDWctky8Q|org.eventb.core.guard#_IptSg9H1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTHYPactiveFloorDownButton\|f"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTactiveFloorDownButton|" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="c" org.eventb.core.type="CABINS"/>
+        <org.eventb.core.poIdentifier name="cabinInShaft'" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTHYPactiveFloorDownButton|f" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTIDENTactiveFloorDownButton\|" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="c∈cabins" org.eventb.core.source="/MultiElevatorSystem/m1_shafts.bum|org.eventb.core.machineFile#m1_shafts|org.eventb.core.event#_IqR6QNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IqShUNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="c∈dom(cabinFloor)" org.eventb.core.source="/MultiElevatorSystem/m1_shafts.bum|org.eventb.core.machineFile#m1_shafts|org.eventb.core.event#_IqR6QNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IqShUdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="cabinFloor(c)=1" org.eventb.core.source="/MultiElevatorSystem/m1_shafts.bum|org.eventb.core.machineFile#m1_shafts|org.eventb.core.event#_IqR6QNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IqTIYNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="cabinInShaft(c)=2" org.eventb.core.source="/MultiElevatorSystem/m1_shafts.bum|org.eventb.core.machineFile#m1_shafts|org.eventb.core.event#_IqR6QNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IqTIYdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="¬(∃cab⦂CABINS·cab∈cabins∧cab∈dom(cabinFloor ▷ {1})∧cabinInShaft(cab)=1)" org.eventb.core.source="/MultiElevatorSystem/m1_shafts.bum|org.eventb.core.machineFile#m1_shafts|org.eventb.core.event#_IqR6QNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IqTvcNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD5" org.eventb.core.predicate="motorState(cabinMotor(c))=ON" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_Iosl4dH1Eey_7YDWctky8Q|org.eventb.core.guard#_IotM8dH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD6" org.eventb.core.predicate="doorState(cabinDoor(c))=CLOSED" org.eventb.core.source="/MultiElevatorSystem/m3_doors.bum|org.eventb.core.machineFile#m3_doors|org.eventb.core.event#_Ir0LUNH1Eey_7YDWctky8Q|org.eventb.core.guard#_Ir0yYdH1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPactiveFloorDownButton|" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTHYPactiveFloorDownButton\|f" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD7" org.eventb.core.predicate="cabinFloor(c)∉ran({c} ◁ activateCabinButtons)" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IptSgdH1Eey_7YDWctky8Q|org.eventb.core.guard#_IptSg9H1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTIDENTactiveFloorDownButton}" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="motorState'" org.eventb.core.type="ℙ(MOTORS×MOTORSTATES)"/>
+        <org.eventb.core.poIdentifier name="c" org.eventb.core.type="CABINS"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPactiveFloorDownButton}" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTIDENTactiveFloorDownButton}" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="c∈cabins" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_Iot0ANH1Eey_7YDWctky8Q|org.eventb.core.guard#_IovCINH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="c∈dom(cabinFloor)" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_Iot0ANH1Eey_7YDWctky8Q|org.eventb.core.guard#_IovpMNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="motorState(cabinMotor(c))=OFF" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_Iot0ANH1Eey_7YDWctky8Q|org.eventb.core.guard#_IovpMdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="doorState(cabinDoor(c))=CLOSED" org.eventb.core.source="/MultiElevatorSystem/m3_doors.bum|org.eventb.core.machineFile#m3_doors|org.eventb.core.event#_Ir1ZcNH1Eey_7YDWctky8Q|org.eventb.core.guard#_Ir2AgdH1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTIDENTactiveFloorDownButton~" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="motorState'" org.eventb.core.type="ℙ(MOTORS×MOTORSTATES)"/>
+        <org.eventb.core.poIdentifier name="c" org.eventb.core.type="CABINS"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPactiveFloorDownButton~" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTIDENTactiveFloorDownButton~" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="c∈cabins" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_Iow3UNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IoyFcNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="c∈dom(cabinFloor)" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_Iow3UNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IoysgNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="motorState(cabinMotor(c))=ON" org.eventb.core.source="/MultiElevatorSystem/m2_motors.bum|org.eventb.core.machineFile#m2_motors|org.eventb.core.event#_Iow3UNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IozTkNH1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTIDENTactiveFloorDownButtoo'" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="c" org.eventb.core.type="CABINS"/>
+        <org.eventb.core.poIdentifier name="doorState'" org.eventb.core.type="ℙ(DOORS×DOORSTATES)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPactiveFloorDownButtoo'" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTIDENTactiveFloorDownButtoo'" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="c∈cabins" org.eventb.core.source="/MultiElevatorSystem/m3_doors.bum|org.eventb.core.machineFile#m3_doors|org.eventb.core.event#_Ir3OodH1Eey_7YDWctky8Q|org.eventb.core.guard#_Ir4cwNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="c∈dom(cabinFloor)" org.eventb.core.source="/MultiElevatorSystem/m3_doors.bum|org.eventb.core.machineFile#m3_doors|org.eventb.core.event#_Ir3OodH1Eey_7YDWctky8Q|org.eventb.core.guard#_Ir5D0NH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="motorState(cabinMotor(c))=OFF" org.eventb.core.source="/MultiElevatorSystem/m3_doors.bum|org.eventb.core.machineFile#m3_doors|org.eventb.core.event#_Ir3OodH1Eey_7YDWctky8Q|org.eventb.core.guard#_Ir5q4NH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="doorState(cabinDoor(c))=CLOSED" org.eventb.core.source="/MultiElevatorSystem/m3_doors.bum|org.eventb.core.machineFile#m3_doors|org.eventb.core.event#_Ir3OodH1Eey_7YDWctky8Q|org.eventb.core.guard#_Ir5q4dH1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="DoorHalfToOpenShaft1/grd5/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTHYPactiveFloorDownButtoo(*"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="c∈dom(cabinInShaft)∧cabinInShaft∈CABINS ⇸ ℤ" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IptSitH1Eey_7YDWctky8Q|org.eventb.core.guard#_IptSjNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IptSitH1Eey_7YDWctky8Q|org.eventb.core.guard#_IptSjNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTHYPactiveFloorDownButtoo(*"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="DoorHalfToOpenShaft1/inv9/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTALLHYPactiveFloorDownButtoo("/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="{cabinFloor(c)} ⩤ activeFloorUpButtons∈floor ⇸ UPBUTTONS" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.invariant#_IpcMzNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/MultiElevatorSystem/m3_doors.bum|org.eventb.core.machineFile#m3_doors|org.eventb.core.event#_Ir65ANH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IptSitH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.invariant#_IpcMzNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poSequent#DoorHalfToOpenShaft1\/inv9\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD0"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="DoorHalfToOpenShaft1/inv11/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTALLHYPactiveFloorDownButtoo("/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="activateCabinButtons ∖ {c ↦ cabinFloor(c)}∈cabins ↔ floor" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.invariant#_IpcMztH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/MultiElevatorSystem/m3_doors.bum|org.eventb.core.machineFile#m3_doors|org.eventb.core.event#_Ir65ANH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IptSitH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.invariant#_IpcMztH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poSequent#DoorHalfToOpenShaft1\/inv11\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD2"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="DoorHalfToOpenShaft1/act2/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTALLHYPactiveFloorDownButtoo("/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="c∈dom(cabinFloor)∧cabinFloor∈CABINS ⇸ ℤ" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IptSitH1Eey_7YDWctky8Q|org.eventb.core.action#_IptSjdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IptSitH1Eey_7YDWctky8Q|org.eventb.core.action#_IptSjdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTALLHYPactiveFloorDownButtoo("/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="DoorHalfToOpenShaft1/act3/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTALLHYPactiveFloorDownButtoo("/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="c∈dom(cabinFloor)∧cabinFloor∈CABINS ⇸ ℤ" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IptSitH1Eey_7YDWctky8Q|org.eventb.core.action#_IptSjtH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IptSitH1Eey_7YDWctky8Q|org.eventb.core.action#_IptSjtH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTALLHYPactiveFloorDownButtoo("/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTactiveFloorDownButtoo(" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="activeFloorUpButtons'" org.eventb.core.type="ℙ(ℤ×UPBUTTONS)"/>
+        <org.eventb.core.poIdentifier name="activateCabinButtons'" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+        <org.eventb.core.poIdentifier name="c" org.eventb.core.type="CABINS"/>
+        <org.eventb.core.poIdentifier name="doorState'" org.eventb.core.type="ℙ(DOORS×DOORSTATES)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTHYPactiveFloorDownButtoo(*" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTIDENTactiveFloorDownButtoo(" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="c∈cabins" org.eventb.core.source="/MultiElevatorSystem/m3_doors.bum|org.eventb.core.machineFile#m3_doors|org.eventb.core.event#_Ir65ANH1Eey_7YDWctky8Q|org.eventb.core.guard#_Ir7gENH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="c∈dom(cabinFloor)" org.eventb.core.source="/MultiElevatorSystem/m3_doors.bum|org.eventb.core.machineFile#m3_doors|org.eventb.core.event#_Ir65ANH1Eey_7YDWctky8Q|org.eventb.core.guard#_Ir8HINH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="motorState(cabinMotor(c))=OFF" org.eventb.core.source="/MultiElevatorSystem/m3_doors.bum|org.eventb.core.machineFile#m3_doors|org.eventb.core.event#_Ir65ANH1Eey_7YDWctky8Q|org.eventb.core.guard#_Ir8uMNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="doorState(cabinDoor(c))=HALF" org.eventb.core.source="/MultiElevatorSystem/m3_doors.bum|org.eventb.core.machineFile#m3_doors|org.eventb.core.event#_Ir65ANH1Eey_7YDWctky8Q|org.eventb.core.guard#_Ir8uMdH1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPactiveFloorDownButtoo(" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTHYPactiveFloorDownButtoo(*" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="cabinInShaft(c)=1" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IptSitH1Eey_7YDWctky8Q|org.eventb.core.guard#_IptSjNH1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="DoorHalfToOpenShaft2/grd5/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTHYPactiveFloorDownButtoo)*"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="c∈dom(cabinInShaft)∧cabinInShaft∈CABINS ⇸ ℤ" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IptSj9H1Eey_7YDWctky8Q|org.eventb.core.guard#_IptSkdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IptSj9H1Eey_7YDWctky8Q|org.eventb.core.guard#_IptSkdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTHYPactiveFloorDownButtoo)*"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="DoorHalfToOpenShaft2/inv10/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTALLHYPactiveFloorDownButtoo)"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="{cabinFloor(c)} ⩤ activeFloorDownButtons∈floor ⇸ DOWNBUTTONS" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.invariant#_IpcMzdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/MultiElevatorSystem/m3_doors.bum|org.eventb.core.machineFile#m3_doors|org.eventb.core.event#_Ir65ANH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IptSj9H1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.invariant#_IpcMzdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poSequent#DoorHalfToOpenShaft2\/inv10\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD1"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="DoorHalfToOpenShaft2/inv11/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTALLHYPactiveFloorDownButtoo)"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="activateCabinButtons ∖ {c ↦ cabinFloor(c)}∈cabins ↔ floor" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.invariant#_IpcMztH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/MultiElevatorSystem/m3_doors.bum|org.eventb.core.machineFile#m3_doors|org.eventb.core.event#_Ir65ANH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IptSj9H1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.invariant#_IpcMztH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poSequent#DoorHalfToOpenShaft2\/inv11\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD2"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="DoorHalfToOpenShaft2/act2/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTALLHYPactiveFloorDownButtoo)"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="c∈dom(cabinFloor)∧cabinFloor∈CABINS ⇸ ℤ" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IptSj9H1Eey_7YDWctky8Q|org.eventb.core.action#_IptSktH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IptSj9H1Eey_7YDWctky8Q|org.eventb.core.action#_IptSktH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTALLHYPactiveFloorDownButtoo)"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="DoorHalfToOpenShaft2/act3/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTALLHYPactiveFloorDownButtoo)"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="c∈dom(cabinFloor)∧cabinFloor∈CABINS ⇸ ℤ" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IptSj9H1Eey_7YDWctky8Q|org.eventb.core.action#_IptSk9H1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IptSj9H1Eey_7YDWctky8Q|org.eventb.core.action#_IptSk9H1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTALLHYPactiveFloorDownButtoo)"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTactiveFloorDownButtoo)" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="activeFloorDownButtons'" org.eventb.core.type="ℙ(ℤ×DOWNBUTTONS)"/>
+        <org.eventb.core.poIdentifier name="activateCabinButtons'" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+        <org.eventb.core.poIdentifier name="c" org.eventb.core.type="CABINS"/>
+        <org.eventb.core.poIdentifier name="doorState'" org.eventb.core.type="ℙ(DOORS×DOORSTATES)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTHYPactiveFloorDownButtoo)*" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTIDENTactiveFloorDownButtoo)" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="c∈cabins" org.eventb.core.source="/MultiElevatorSystem/m3_doors.bum|org.eventb.core.machineFile#m3_doors|org.eventb.core.event#_Ir65ANH1Eey_7YDWctky8Q|org.eventb.core.guard#_Ir7gENH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="c∈dom(cabinFloor)" org.eventb.core.source="/MultiElevatorSystem/m3_doors.bum|org.eventb.core.machineFile#m3_doors|org.eventb.core.event#_Ir65ANH1Eey_7YDWctky8Q|org.eventb.core.guard#_Ir8HINH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="motorState(cabinMotor(c))=OFF" org.eventb.core.source="/MultiElevatorSystem/m3_doors.bum|org.eventb.core.machineFile#m3_doors|org.eventb.core.event#_Ir65ANH1Eey_7YDWctky8Q|org.eventb.core.guard#_Ir8uMNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="doorState(cabinDoor(c))=HALF" org.eventb.core.source="/MultiElevatorSystem/m3_doors.bum|org.eventb.core.machineFile#m3_doors|org.eventb.core.event#_Ir65ANH1Eey_7YDWctky8Q|org.eventb.core.guard#_Ir8uMdH1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPactiveFloorDownButtoo)" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTHYPactiveFloorDownButtoo)*" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="cabinInShaft(c)=2" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IptSj9H1Eey_7YDWctky8Q|org.eventb.core.guard#_IptSkdH1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTIDENTactiveFloorDownButtoo*" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="c" org.eventb.core.type="CABINS"/>
+        <org.eventb.core.poIdentifier name="doorState'" org.eventb.core.type="ℙ(DOORS×DOORSTATES)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPactiveFloorDownButtoo*" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTIDENTactiveFloorDownButtoo*" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="c∈cabins" org.eventb.core.source="/MultiElevatorSystem/m3_doors.bum|org.eventb.core.machineFile#m3_doors|org.eventb.core.event#_Ir98UNH1Eey_7YDWctky8Q|org.eventb.core.guard#_Ir-jYdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="c∈dom(cabinFloor)" org.eventb.core.source="/MultiElevatorSystem/m3_doors.bum|org.eventb.core.machineFile#m3_doors|org.eventb.core.event#_Ir98UNH1Eey_7YDWctky8Q|org.eventb.core.guard#_Ir_KcNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="motorState(cabinMotor(c))=OFF" org.eventb.core.source="/MultiElevatorSystem/m3_doors.bum|org.eventb.core.machineFile#m3_doors|org.eventb.core.event#_Ir98UNH1Eey_7YDWctky8Q|org.eventb.core.guard#_Ir_xgNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="doorState(cabinDoor(c))=OPEN" org.eventb.core.source="/MultiElevatorSystem/m3_doors.bum|org.eventb.core.machineFile#m3_doors|org.eventb.core.event#_Ir98UNH1Eey_7YDWctky8Q|org.eventb.core.guard#_Ir_xgdH1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTIDENTactiveFloorDownButtoo+" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="c" org.eventb.core.type="CABINS"/>
+        <org.eventb.core.poIdentifier name="doorState'" org.eventb.core.type="ℙ(DOORS×DOORSTATES)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPactiveFloorDownButtoo+" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTIDENTactiveFloorDownButtoo+" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="c∈cabins" org.eventb.core.source="/MultiElevatorSystem/m3_doors.bum|org.eventb.core.machineFile#m3_doors|org.eventb.core.event#_IsA_oNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IsBmsdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="c∈dom(cabinFloor)" org.eventb.core.source="/MultiElevatorSystem/m3_doors.bum|org.eventb.core.machineFile#m3_doors|org.eventb.core.event#_IsA_oNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IsCNwNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="motorState(cabinMotor(c))=OFF" org.eventb.core.source="/MultiElevatorSystem/m3_doors.bum|org.eventb.core.machineFile#m3_doors|org.eventb.core.event#_IsA_oNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IsC00NH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="doorState(cabinDoor(c))=HALF" org.eventb.core.source="/MultiElevatorSystem/m3_doors.bum|org.eventb.core.machineFile#m3_doors|org.eventb.core.event#_IsA_oNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IsC00dH1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="UserPressesUpButton/inv9/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTALLHYPactiveFloorDownButtoo,"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="activeFloorUpButtons{f ↦ floorUpButtons(f)}∈floor ⇸ UPBUTTONS" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.invariant#_IpcMzNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IptSmNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.invariant#_IpcMzNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poSequent#UserPressesUpButton\/inv9\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD0"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="UserPressesUpButton/act1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTALLHYPactiveFloorDownButtoo,"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="f∈dom(floorUpButtons)∧floorUpButtons∈ℤ ⇸ UPBUTTONS" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IptSmNH1Eey_7YDWctky8Q|org.eventb.core.action#_Ip3DgNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IptSmNH1Eey_7YDWctky8Q|org.eventb.core.action#_Ip3DgNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTALLHYPactiveFloorDownButtoo,"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTactiveFloorDownButtoo," org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="activeFloorUpButtons'" org.eventb.core.type="ℙ(ℤ×UPBUTTONS)"/>
+        <org.eventb.core.poIdentifier name="f" org.eventb.core.type="ℤ"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPactiveFloorDownButtoo," org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTIDENTactiveFloorDownButtoo," org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="f∈floor" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IptSmNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IptSmtH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="f∈dom(floorUpButtons)" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_IptSmNH1Eey_7YDWctky8Q|org.eventb.core.guard#_IptSm9H1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="UserPressesDownButton/inv10/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTALLHYPactiveFloorDownButtoo-"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="activeFloorDownButtons{f ↦ floorDownButtons(f)}∈floor ⇸ DOWNBUTTONS" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.invariant#_IpcMzdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_Ip3qkNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.invariant#_IpcMzdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poSequent#UserPressesDownButton\/inv10\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD1"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="UserPressesDownButton/act1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTALLHYPactiveFloorDownButtoo-"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="f∈dom(floorDownButtons)∧floorDownButtons∈ℤ ⇸ DOWNBUTTONS" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_Ip3qkNH1Eey_7YDWctky8Q|org.eventb.core.action#_Ip3qlNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_Ip3qkNH1Eey_7YDWctky8Q|org.eventb.core.action#_Ip3qlNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTALLHYPactiveFloorDownButtoo-"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTactiveFloorDownButtoo-" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="activeFloorDownButtons'" org.eventb.core.type="ℙ(ℤ×DOWNBUTTONS)"/>
+        <org.eventb.core.poIdentifier name="f" org.eventb.core.type="ℤ"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPactiveFloorDownButtoo-" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTIDENTactiveFloorDownButtoo-" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="f∈floor" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_Ip3qkNH1Eey_7YDWctky8Q|org.eventb.core.guard#_Ip3qktH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="f∈dom(floorDownButtons)" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_Ip3qkNH1Eey_7YDWctky8Q|org.eventb.core.guard#_Ip3qk9H1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="UserPressesFloorButton/inv11/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTALLHYPactiveFloorDownButtoo."/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="activateCabinButtons∪{c ↦ f}∈cabins ↔ floor" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.invariant#_IpcMztH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_Ip3qldH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.invariant#_IpcMztH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poSequent#UserPressesFloorButton\/inv11\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD2"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTactiveFloorDownButtoo." org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="activateCabinButtons'" org.eventb.core.type="ℙ(CABINS×ℤ)"/>
+        <org.eventb.core.poIdentifier name="f" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="c" org.eventb.core.type="CABINS"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPactiveFloorDownButtoo." org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#EVTIDENTactiveFloorDownButtoo." org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="c∈cabins" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_Ip3qldH1Eey_7YDWctky8Q|org.eventb.core.guard#_Ip3qmNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="f∈floor" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.event#_Ip3qldH1Eey_7YDWctky8Q|org.eventb.core.guard#_Ip3qmdH1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/MultiElevatorSystem/m4_buttons.bpo|org.eventb.core.poFile#m4_buttons|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="activeFloorUpButtons∈floor ⇸ UPBUTTONS" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.invariant#_IpcMzNH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="activeFloorDownButtons∈floor ⇸ DOWNBUTTONS" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.invariant#_IpcMzdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="activateCabinButtons∈cabins ↔ floor" org.eventb.core.source="/MultiElevatorSystem/m4_buttons.bum|org.eventb.core.machineFile#m4_buttons|org.eventb.core.invariant#_IpcMztH1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+</org.eventb.core.poFile>

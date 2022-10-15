@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.poFile org.eventb.core.poStamp="0">
+    <org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="CABINS" org.eventb.core.type="ℙ(CABINS)"/>
+        <org.eventb.core.poIdentifier name="floor" org.eventb.core.type="ℙ(ℤ)"/>
+        <org.eventb.core.poIdentifier name="topFloor" org.eventb.core.type="ℤ"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/MultiElevatorSystem/c0_cabins.bpo|org.eventb.core.poFile#c0_cabins|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="topFloor=4" org.eventb.core.source="/MultiElevatorSystem/c0_cabins.buc|org.eventb.core.contextFile#c0_cabins|org.eventb.core.axiom#_IsbPUdH1Eey_7YDWctky8Q"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="floor=1 ‥ topFloor" org.eventb.core.source="/MultiElevatorSystem/c0_cabins.buc|org.eventb.core.contextFile#c0_cabins|org.eventb.core.axiom#_Isb2YNH1Eey_7YDWctky8Q"/>
+    </org.eventb.core.poPredicateSet>
+</org.eventb.core.poFile>

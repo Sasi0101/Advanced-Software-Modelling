@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd;ac.soton.xeventb.xcontext.base" org.eventb.core.generated="false" version="3">
+    <org.eventb.core.extendsContext name="_Is0Q4NH1Eey_7YDWctky8Q" org.eventb.core.target="c2_motors"/>
+    <org.eventb.core.carrierSet name="_Is0Q4dH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.identifier="DOORS"/>
+    <org.eventb.core.carrierSet name="_Is038NH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.identifier="DOORSTATES"/>
+    <org.eventb.core.constant name="_Is038dH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.identifier="OPEN"/>
+    <org.eventb.core.constant name="_Is1fANH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.identifier="HALF"/>
+    <org.eventb.core.constant name="_Is1fAdH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.identifier="CLOSED"/>
+    <org.eventb.core.constant name="_Is1fAtH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.identifier="cabinDoor"/>
+    <org.eventb.core.axiom name="_Is2GENH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.label="axm6" org.eventb.core.predicate="partition(DOORSTATES,{OPEN},{HALF},{CLOSED})"/>
+    <org.eventb.core.axiom name="_Is2GEdH1Eey_7YDWctky8Q" org.eventb.core.generated="false" org.eventb.core.label="axm7" org.eventb.core.predicate="cabinDoor ∈ CABINS ⤖ DOORS"/>
+</org.eventb.core.contextFile>

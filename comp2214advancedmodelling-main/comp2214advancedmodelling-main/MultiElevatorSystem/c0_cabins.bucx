@@ -1,0 +1,11 @@
+context c0_cabins
+sets
+	CABINS
+constants
+	topFloor
+	floor
+axioms
+	//@axm1: topFloor ∈ ℕ
+	@axm1: topFloor = 4
+	@axm2: floor = 1 ‥ topFloor 
+end

@@ -1,0 +1,14 @@
+context c3_doors
+extends c2_motors
+sets
+DOORS
+DOORSTATES
+constants
+OPEN
+HALF
+CLOSED
+cabinDoor
+axioms
+@axm6: partition(DOORSTATES,{OPEN},{HALF},{CLOSED})
+@axm7: cabinDoor ∈ CABINS ⤖ DOORS
+end

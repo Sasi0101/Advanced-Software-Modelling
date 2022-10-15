@@ -1,0 +1,105 @@
+machine m3_doors
+refines m2_motors
+sees c3_doors
+variables
+	cabins
+	cabinFloor
+	cabinGoingToUp
+	cabinGoingToDown
+	cabinInShaft
+	motorState
+	doorState
+invariants
+@inv8: doorState ∈ DOORS ⇸ DOORSTATES
+@inv13: ∀ c · c ∈ cabins ⇒ cabinDoor(c) ∈ dom(doorState) 
+events
+	event INITIALISATION extends INITIALISATION
+	begin
+	@act7: doorState ≔ ∅ 
+	end
+
+	event AddCabin extends AddCabin
+	begin
+	@act5: doorState(cabinDoor(c)) ≔ CLOSED
+	end
+
+	event RemoveCabin extends RemoveCabin
+	where
+	@grd8: doorState(cabinDoor(c)) = CLOSED
+	end
+
+	event CabinLeavesFloorGoingUp extends CabinLeavesFloorGoingUp
+	where
+	@grd9: doorState(cabinDoor(c)) = CLOSED
+	end
+
+	event CabinReachesFloorGoingUp extends CabinReachesFloorGoingUp
+	end
+
+	event CabinLeavesFloorGoingDown extends CabinLeavesFloorGoingDown
+	where
+	@grd9: doorState(cabinDoor(c)) = CLOSED
+	end
+
+	event CabinReachesFloorGoingDown extends CabinReachesFloorGoingDown
+	end
+
+	event CabinUpToDown extends CabinUpToDown
+	where
+	@grd8: doorState(cabinDoor(c)) = CLOSED
+	end
+
+	event CabinDownToUp extends CabinDownToUp
+	where
+	@grd8: doorState(cabinDoor(c)) = CLOSED
+	end
+
+	event MotorStarts extends MotorStarts
+	where
+	@grd4: doorState(cabinDoor(c)) = CLOSED
+	end
+
+	event MotorStops extends MotorStops
+	end
+	
+	event DoorClosedToHalf
+	any c where
+	@grd1: c ∈ cabins
+	@grd2: c ∈ dom(cabinFloor)
+	@grd3: motorState(cabinMotor(c)) = OFF
+	@grd4: doorState(cabinDoor(c)) = CLOSED
+	then
+	@act1: doorState(cabinDoor(c)) ≔ HALF 
+	end
+	
+	event DoorHalfToOpen
+	any c where
+	@grd1: c ∈ cabins
+	@grd2: c ∈ dom(cabinFloor)
+	@grd3: motorState(cabinMotor(c)) = OFF
+	@grd4: doorState(cabinDoor(c)) = HALF
+	then
+	@act1: doorState(cabinDoor(c)) ≔ OPEN 
+	end
+	
+	event DoorOpenToHalf
+	any c where
+	@grd1: c ∈ cabins
+	@grd2: c ∈ dom(cabinFloor)
+	@grd3: motorState(cabinMotor(c)) = OFF
+	@grd4: doorState(cabinDoor(c)) = OPEN 
+	then
+	@act1: doorState(cabinDoor(c)) ≔ HALF 
+	end
+	
+	event DoorHalfToClosed
+	any c where
+	@grd1: c ∈ cabins
+	@grd2: c ∈ dom(cabinFloor)
+	@grd3: motorState(cabinMotor(c)) = OFF
+	@grd4: doorState(cabinDoor(c)) = HALF 
+	then
+	@act1: doorState(cabinDoor(c)) ≔ CLOSED 
+	end
+
+end

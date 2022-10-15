@@ -1,0 +1,15 @@
+context c4_buttons
+extends c3_doors
+sets
+UPBUTTONS
+DOWNBUTTONS
+constants
+floorUpButtons
+floorDownButtons
+cabinButtons
+axioms
+@axm8: floorUpButtons ∈ (floor ∖ {topFloor}) ⤖ UPBUTTONS
+@axm9: floorDownButtons ∈ (floor ∖ {1}) ⤖ DOWNBUTTONS
+@axm10: ∀ c,f · c ∈ CABINS ∧ f ∈ floor ⇒ cabinButtons(c) = floor
+//@axm10: ∀ c,f · c ∈ CABINS ∧ f ∈ floor ⇒ cabinButtons = cabinButtons ∪ {c ↦ f}
+end
